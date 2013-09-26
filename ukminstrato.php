@@ -8,6 +8,8 @@ Version: 1.0
 Author URI: http://www.ukm-norge.no
 */
 
+require_once('UKM/inc/twig-admin.inc.php');
+
 ## HOOK MENU AND SCRIPTS
 if(is_admin()) {
 	global $blog_id;
