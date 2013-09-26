@@ -20,6 +20,7 @@ function UKMinstrato_menu() {
 }
 
 function UKMinstrato() {
+	global $wpdb;
  	$current_user = wp_get_current_user();
  	$cuid = $current_user->ID;
 
