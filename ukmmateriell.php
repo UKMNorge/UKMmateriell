@@ -18,7 +18,8 @@ if(is_admin()) {
 }
 
 function UKMmateriell_menu() {
-	$page = add_menu_page('Designgenerator', 'Designgenerator', 'editor', 'UKMmateriell', 'UKMmateriell', 'http://ico.ukm.no/kolli-menu.png',125);
+	$page = add_menu_page('Materiell', 'Materiell', 'editor', 'UKMmateriell', 'UKMmateriell', 'http://ico.ukm.no/kolli-menu.png',125);
+	$subpage = add_menu_page('UKMmateriell', 'Bestill pakke', 'Bestill pakke', 'editor', 'UKMmateriellpakke', 'UKMmateriellpakke');
 }
 
 function UKMmateriell() {
@@ -28,6 +29,14 @@ function UKMmateriell() {
 
 	$bruker = $wpdb->get_row("SELECT `b_id` FROM `ukm_brukere`
 								  WHERE `wp_bid` = '".$cuid."'");	
+	$infos = array('user_id' => $bruker->b_id
+				   'site_type' => get_option('site_type'),
+				   'season' => get_option('season'),
+				   'deadline' => '21.10.2013'
+				  );
+	echo TWIG('dash.twig.html', $infos , dirname(__FILE__));
+}
 
-	echo TWIG('instrato.twig.html', array('user_id' => $bruker->b_id) , dirname(__FILE__));
+function UKMmateriellpakke() {
+	echo 'Bestill pakke du';
 }
