@@ -1,15 +1,14 @@
 <div class="wrap">
-	<h2>UKM-materiell</h2>{{site_type}}
+	<h1>UKM-materiell</h1>
 	{% if site_type == "fylke" %}
 	<div class="materielldash">
 		<h2>Bestill materiellpakke</h2>
-		Det er fylkeskontaktene som har ansvar for å bestille materiellpakker til alle sine lokalmønstringer.
-		Frist for materiellpakker i {{season}} er: {{deadline}}
-		<a href="">Gå til materiellpakke-bestilling</a>
+		<strong>Det er fylkeskontaktene som har ansvar for å bestille materiellpakker til alle sine lokalmønstringer.</strong><br />
+		Frist for materiellpakker i {{season}} er: {{deadline}} <br />
+		<a href="?page=UKMmateriellpakke">Gå til materiellpakke-bestilling</a>
 	</div>
 	{% endif %}
-	<img src="//grafikk.ukm.no/instrato/velkommenside.png" width="350" />
-	<h4>Tilpass ditt UKM-materiell!</h4>
-	<p>Her får du mulighet for å skreddersy ditt eget promoteringsmateriell på en enkel og oversiktlig måte, og få ut filer klare for trykk, print eller skjermbruk.</p>
-	<a href="http://instrato.no/start/ukm-login.php?uId={{user_id}}" target="_blank">Logg inn til designgeneratoren</a>
+	<h2>Tilpass / last ned materiell</h2>
+	<h4>Plakater, facebook-grafikk, videoer, diplomer, program, logoer, ikoner osv</h4>
+	<strong>Vi har samlet alt UKM-materiellet på ett sted! <a href="http://instrato.no/start/ukm-login.php?uId={{user_id}}" target="_blank">Logg inn til instrato her</a>
 </div>

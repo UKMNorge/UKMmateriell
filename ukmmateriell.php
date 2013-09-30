@@ -15,32 +15,25 @@ if(is_admin()) {
 	global $blog_id;
 	if($blog_id != 1)
 		add_action('admin_menu', 'UKMmateriell_menu',100);
-
+		
 	add_action( 'admin_enqueue_scripts', 'UKMmateriell_scriptsandstyles' );
 }
 
 function UKMmateriell_menu() {
 	$page = add_menu_page('Materiell', 'Materiell', 'editor', 'UKMmateriell', 'UKMmateriell', 'http://ico.ukm.no/kolli-menu.png',125);
-	$subpage = add_submenu_page('UKMmateriell', 'Bestill pakke', 'Bestill pakke', 'editor', 'UKMmateriellpakke', 'UKMmateriellpakke');
+	
+	if(get_option('site_type') == 'fylke')
+		$subpage = add_submenu_page('UKMmateriell', 'Bestill pakke', 'Bestill pakke', 'editor', 'UKMmateriellpakke', 'UKMmateriellpakke');
 }
 
 function UKMmateriell() {
-	global $wpdb;
- 	$current_user = wp_get_current_user();
- 	$cuid = $current_user->ID;
-
-	$bruker = $wpdb->get_row("SELECT `b_id` FROM `ukm_brukere`
-								  WHERE `wp_bid` = '".$cuid."'");	
-	$infos = array('user_id' => $bruker->b_id,
-				   'site_type' => get_option('site_type'),
-				   'season' => get_option('season'),
-				   'deadline' => '21.10.2013'
-				  );
+	require_once('dash.controller.php');
 	echo TWIG('dash.twig.html', $infos , dirname(__FILE__));
 }
 
 function UKMmateriellpakke() {
-	echo 'Bestill pakke du';
+	require_once('materiellpakke.controller.php');
+	echo TWIG('materiellpakke.twig.html', $infos , dirname(__FILE__));
 }
 
 function UKMmateriell_scriptsandstyles() {
