@@ -15,6 +15,8 @@ if(is_admin()) {
 	global $blog_id;
 	if($blog_id != 1)
 		add_action('admin_menu', 'UKMmateriell_menu',100);
+
+	add_action( 'admin_enqueue_scripts', 'UKMmateriell_scriptsandstyles' );
 }
 
 function UKMmateriell_menu() {
@@ -39,4 +41,8 @@ function UKMmateriell() {
 
 function UKMmateriellpakke() {
 	echo 'Bestill pakke du';
+}
+
+function UKMmateriell_scriptsandstyles() {
+	wp_enqueue_style('ukmmateriell', plugin_dir_url( __FILE__ ) .'/css/ukmmateriell.css');
 }
