@@ -14,14 +14,14 @@ require_once('UKM/inc/twig-admin.inc.php');
 if(is_admin()) {
 	global $blog_id;
 	if($blog_id != 1)
-		add_action('admin_menu', 'UKMinstrato_menu',100);
+		add_action('admin_menu', 'UKMmateriell_menu',100);
 }
 
-function UKMinstrato_menu() {
-	$page = add_menu_page('Designgenerator', 'Designgenerator', 'editor', 'UKMinstrato', 'UKMinstrato', 'http://ico.ukm.no/cloud-menu.png',125);
+function UKMmateriell_menu() {
+	$page = add_menu_page('Designgenerator', 'Designgenerator', 'editor', 'UKMmateriell', 'UKMmateriell', 'http://ico.ukm.no/kolli-menu.png',125);
 }
 
-function UKMinstrato() {
+function UKMmateriell() {
 	global $wpdb;
  	$current_user = wp_get_current_user();
  	$cuid = $current_user->ID;
