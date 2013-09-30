@@ -18,7 +18,7 @@ if(is_admin()) {
 }
 
 function UKMinstrato_menu() {
-	$page = add_menu_page('Designgenerator', 'Designgenerator', 'editor', 'UKMinstrato', 'UKMinstrato', 'http://ico.ukm.no/cloud-menu.png',198);
+	$page = add_menu_page('Designgenerator', 'Designgenerator', 'editor', 'UKMinstrato', 'UKMinstrato', 'http://ico.ukm.no/cloud-menu.png',165);
 }
 
 function UKMinstrato() {
