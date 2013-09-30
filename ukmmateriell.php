@@ -1,8 +1,8 @@
 <?php  
 /* 
-Plugin Name: UKM Instrato
+Plugin Name: UKM Materiell
 Plugin URI: http://www.ukm-norge.no
-Description: Generer meny-element og infoside for instrato
+Description: Generer meny-element og infoside for instrato og materiellbestilling
 Author: UKM Norge / M Mandal 
 Version: 1.0 
 Author URI: http://www.ukm-norge.no
