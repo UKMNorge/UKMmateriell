@@ -8,108 +8,110 @@
 <form method="POST">
 	<div id="hugesubmit"><div id="lagre">Lagre</div></div>
 
-	{% for kommune in kommuner %}
-	<a name="kommune_{{kommune.kommune_id}}"></a>
-	<fieldset class="widefat" style="margin: 10px; margin-top: 18px; width: auto; background: #f1f1f1; padding: 8px;">
-		<legend style="border: none; margin-left: 10px; font-weight: bold; font-size: 16px;">{{kommune.navn}}</legend>
-		<p><strong>Del av mønstring:</strong> {{ kommune.delavmonstring is empty ? "Ikke del av noen mønstring" : kommune.delavmonstring }}</p>
-		{% if kommune.skalha != "skalha" %} 
+	<div style="width: 775px;">
+		{% for kommune in kommuner %}
+		<a name="kommune_{{kommune.kommune_id}}"></a>
+		<fieldset class="widefat" style="margin: 10px; margin-top: 18px; width: auto; background: #f1f1f1; padding: 8px;">
+			<legend style="border: none; margin-left: 10px; font-weight: bold; font-size: 16px;">{{kommune.navn}}</legend>
+			<p><strong>Del av mønstring:</strong> {{ kommune.delavmonstring is empty ? "Ikke del av noen mønstring" : kommune.delavmonstring }}</p>
+			{% if kommune.skalha != "skalha" %} 
+				<div class="form-field form-required" style="margin-top: 2px; margin-bottom: 0px;">
+					<label for="kommune_valg[]">Mottak av pakke</label>
+					<select name="kommune_valg[]" id="kommune_valg[]" style="width: 95%;" aria-required="true">
+						<option value="skalha">
+							Skal ha materiellpakke
+						</option>
+						<option value="arrikke" selected="selected">
+							Arrangerer ikke m&oslash;nstring / deler pakke med en annen kommune
+						</option>
+					</select>
+					<p style="margin-bottom: 0px;">
+						Hvis {{kommune.navn}} skal ha materiellpakke velger du "Skal ha mønstring", og trykker lagre.
+						Resten av skjemaet for {{kommune.navn}} vil da vises når siden lastes på nytt.
+					</p>
+					<input name="kommune_kontaktperson[]" type="hidden" value="{{kommune.kontaktperson}}" />
+					<input name="kommune_adressat[]" type="hidden" value="{{kommune.adressat}}" />
+					<input name="kommune_adresse[]" type="hidden" value="{{kommune.adresse}}" />
+					<input name="kommune_postnr[]" type="hidden" value="{{kommune.postnummer}}" />
+					<input name="kommune_sted[]" type="hidden" value="{{kommune.sted}}" />
+					<input name="kommune_valg_pakke[]" type="hidden" value="{{kommune.pakke}}" />
+					<input name="kommune_miljo[]" type="hidden" value="{{kommune.miljo}}" />
+					<input name="kommune_ekstradiplom[]" type="hidden" value="{{kommune.ekstradiplom}}" />
+				</div>				
+			{% else %}
+			
 			<div class="form-field form-required" style="margin-top: 2px; margin-bottom: 0px;">
 				<label for="kommune_valg[]">Mottak av pakke</label>
 				<select name="kommune_valg[]" id="kommune_valg[]" style="width: 95%;" aria-required="true">
-					<option value="skalha">
+					<option value="skalha"{{ kommune.skalha == "skalha" ? 'selected="selected"' : '' }}>
 						Skal ha materiellpakke
 					</option>
-					<option value="arrikke" selected="selected">
+					<option value="arrikke"{{ kommune.skalha != "skalha" ? 'selected="selected"' : '' }}>
 						Arrangerer ikke m&oslash;nstring / deler pakke med en annen kommune
 					</option>
 				</select>
-				<p style="margin-bottom: 0px;">
-					Hvis {{kommune.navn}} skal ha materiellpakke velger du "Skal ha mønstring", og trykker lagre.
-					Resten av skjemaet for {{kommune.navn}} vil da vises når siden lastes på nytt.
-				</p>
-				<input name="kommune_kontaktperson[]" type="hidden" value="{{kommune.kontaktperson}}" />
-				<input name="kommune_adressat[]" type="hidden" value="{{kommune.adressat}}" />
-				<input name="kommune_adresse[]" type="hidden" value="{{kommune.adresse}}" />
-				<input name="kommune_postnr[]" type="hidden" value="{{kommune.postnummer}}" />
-				<input name="kommune_sted[]" type="hidden" value="{{kommune.sted}}" />
-				<input name="kommune_valg_pakke[]" type="hidden" value="{{kommune.pakke}}" />
-				<input name="kommune_miljo[]" type="hidden" value="{{kommune.miljo}}" />
-				<input name="kommune_ekstradiplom[]" type="hidden" value="{{kommune.ekstradiplom}}" />
-			</div>				
-		{% else %}
-		
-		<div class="form-field form-required" style="margin-top: 2px; margin-bottom: 0px;">
-			<label for="kommune_valg[]">Mottak av pakke</label>
-			<select name="kommune_valg[]" id="kommune_valg[]" style="width: 95%;" aria-required="true">
-				<option value="skalha"{{ kommune.skalha == "skalha" ? 'selected="selected"' : '' }}>
-					Skal ha materiellpakke
-				</option>
-				<option value="arrikke"{{ kommune.skalha != "skalha" ? 'selected="selected"' : '' }}>
-					Arrangerer ikke m&oslash;nstring / deler pakke med en annen kommune
-				</option>
-			</select>
+			</div>
+	
+			<div class="form-wrap" style="width: 40%; float: right;">
+				<div class="form-field form-required" style="margin-top: 2px; margin-bottom: 0px;">
+					<label for="kommune_valg_pakke[]">Valg av pakke</label>
+					<select name="kommune_valg_pakke[]" id="kommune_valg_pakke[]" style="width: 95%;" aria-required="true">
+						<option value="mini" {{ kommune.pakke == 'mini' ? 'selected="selected"' : ''}}>Mini-pakke</option>
+						<option value="medium" {{ kommune.pakke == 'medium' ? 'selected="selected"' : ''}}>Medium pakke</option>
+						<option value="stor"  {{ kommune.pakke == 'stor' ? 'selected="selected"' : ''}}>Stor pakke</option>
+					</select>
+				</div>
+				<div class="form-field form-required" style="margin-top: 2px; margin-bottom: 0px;">
+					<label for="kommune_miljo[]">Miljøpakke</label>
+					<select name="kommune_miljo[]" id="kommune_miljo[]" style="width: 95%;" aria-required="true">
+						<option value="vanlig" {{ kommune.miljo == 'vanlig' ? 'selected="selected"' : ''}}>
+							Vil ha full (vanlig) pakke
+						</option>
+						<option value="papermill" {{ kommune.pakke == 'papermill' ? 'selected="selected"' : ''}}>
+							Vil ikke ha arrangementsplakat, lager denne selv i papermill
+						</option>
+					</select>
+					<p style="margin-bottom: 0px;">Valg av miljøpakke reduserer prisen med kr. 200,-</p>
+				</div>
+				<div class="form-field form-required" style="margin-top: 2px; margin-bottom: 0px;">
+					<label for="kommune_ekstradiplom[]">Antall ekstra diplomer</label>
+					<input name="kommune_ekstradiplom[]" id="kommune_ekstradiplom[]" type="text" value="{{kommune.diplomer}}" size="40" aria-required="true" />
+				</div>
+			</div>
+	
+	
+			<div class="form-wrap" style="width: 40%; float: left;">
+				<div class="form-field form-required" style="margin-top: 2px; margin-bottom: 0px;">
+					<label for="kommune_kontaktperson[]">Kontaktperson</label>
+					<input name="kommune_kontaktperson[]" id="kommune_kontaktperson[]" type="text" value="{{kommune.kontaktperson}}" size="40" aria-required="true" />
+				</div>
+				<div class="form-field form-required" style="margin-top: 2px; margin-bottom: 0px;">
+					<label for="kommune_adressat[]">Adressat</label>
+					<input name="kommune_adressat[]" id="kommune_adressat[]" type="text" value="{{kommune.adressat}}" size="40" aria-required="true" />
+				</div>
+				<div class="form-field form-required" style="margin-top: 2px; margin-bottom: 0px;">
+					<label for="kommune_adresse[]">Adresse</label>
+					<input name="kommune_adresse[]" id="kommune_adresse[]" type="text" value="{{kommune.adresse}}" size="40" aria-required="true" />
+					<p style="margin-bottom: 0px;">(OBS: Pakken kommer med bud til denne adressen)</p>
+				</div>
+				<div class="form-field form-required" style="margin-top: 2px; margin-bottom: 0px;">
+					<label for="Array">Postnummer og -sted</label>
+					<input name="kommune_postnr[]" id="kommune_postnr[]" value="{{kommune.postnummer}}" type="text" size="6" style="width: 25%;margin-right: 3%;" aria-required="true" />
+					<input name="kommune_sted[]" id="kommune_sted[]" value="{{kommune.sted}}" type="text" size="30" style="width: 67%;margin-left: 0;" aria-required="true" />
+				</div>
+			</div>
+	
+	
+	
+	
+	
+			{% endif %}
+			<input name="kommune_id[]" type="hidden" value="{{kommune.kommune_id}}" id="kommune_id[]" />
+			<div style="clear: both;"></div>
+		</fieldset>
+		{% endfor %}
+		<div class="form-wrap" style="width: 350px;">
+			<input type="submit" class="button" name="submitSteg2" id="submit" value="Lagre" />
 		</div>
-
-		<div class="form-wrap" style="width: 40%; float: right;">
-			<div class="form-field form-required" style="margin-top: 2px; margin-bottom: 0px;">
-				<label for="kommune_valg_pakke[]">Valg av pakke</label>
-				<select name="kommune_valg_pakke[]" id="kommune_valg_pakke[]" style="width: 95%;" aria-required="true">
-					<option value="mini" {{ kommune.pakke == 'mini' ? 'selected="selected"' : ''}}>Mini-pakke</option>
-					<option value="medium" {{ kommune.pakke == 'medium' ? 'selected="selected"' : ''}}>Medium pakke</option>
-					<option value="stor"  {{ kommune.pakke == 'stor' ? 'selected="selected"' : ''}}>Stor pakke</option>
-				</select>
-			</div>
-			<div class="form-field form-required" style="margin-top: 2px; margin-bottom: 0px;">
-				<label for="kommune_miljo[]">Miljøpakke</label>
-				<select name="kommune_miljo[]" id="kommune_miljo[]" style="width: 95%;" aria-required="true">
-					<option value="vanlig" {{ kommune.miljo == 'vanlig' ? 'selected="selected"' : ''}}>
-						Vil ha full (vanlig) pakke
-					</option>
-					<option value="papermill" {{ kommune.pakke == 'papermill' ? 'selected="selected"' : ''}}>
-						Vil ikke ha arrangementsplakat, lager denne selv i papermill
-					</option>
-				</select>
-				<p style="margin-bottom: 0px;">Valg av miljøpakke reduserer prisen med kr. 200,-</p>
-			</div>
-			<div class="form-field form-required" style="margin-top: 2px; margin-bottom: 0px;">
-				<label for="kommune_ekstradiplom[]">Antall ekstra diplomer</label>
-				<input name="kommune_ekstradiplom[]" id="kommune_ekstradiplom[]" type="text" value="{{kommune.diplomer}}" size="40" aria-required="true" />
-			</div>
-		</div>
-
-
-		<div class="form-wrap" style="width: 40%; float: left;">
-			<div class="form-field form-required" style="margin-top: 2px; margin-bottom: 0px;">
-				<label for="kommune_kontaktperson[]">Kontaktperson</label>
-				<input name="kommune_kontaktperson[]" id="kommune_kontaktperson[]" type="text" value="{{kommune.kontaktperson}}" size="40" aria-required="true" />
-			</div>
-			<div class="form-field form-required" style="margin-top: 2px; margin-bottom: 0px;">
-				<label for="kommune_adressat[]">Adressat</label>
-				<input name="kommune_adressat[]" id="kommune_adressat[]" type="text" value="{{kommune.adressat}}" size="40" aria-required="true" />
-			</div>
-			<div class="form-field form-required" style="margin-top: 2px; margin-bottom: 0px;">
-				<label for="kommune_adresse[]">Adresse</label>
-				<input name="kommune_adresse[]" id="kommune_adresse[]" type="text" value="{{kommune.adresse}}" size="40" aria-required="true" />
-				<p style="margin-bottom: 0px;">(OBS: Pakken kommer med bud til denne adressen)</p>
-			</div>
-			<div class="form-field form-required" style="margin-top: 2px; margin-bottom: 0px;">
-				<label for="Array">Postnummer og -sted</label>
-				<input name="kommune_postnr[]" id="kommune_postnr[]" value="{{kommune.postnummer}}" type="text" size="6" style="width: 25%;margin-right: 3%;" aria-required="true" />
-				<input name="kommune_sted[]" id="kommune_sted[]" value="{{kommune.sted}}" type="text" size="30" style="width: 67%;margin-left: 0;" aria-required="true" />
-			</div>
-		</div>
-
-
-
-
-
-		{% endif %}
-		<input name="kommune_id[]" type="hidden" value="{{kommune.kommune_id}}" id="kommune_id[]" />
-		<div style="clear: both;"></div>
-	</fieldset>
-	{% endfor %}
-	<div class="form-wrap" style="width: 350px;">
-		<input type="submit" class="button" name="submitSteg2" id="submit" value="Lagre" />
 	</div>
 </form>

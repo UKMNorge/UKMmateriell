@@ -37,5 +37,5 @@ function UKMmateriellpakke() {
 }
 
 function UKMmateriell_scriptsandstyles() {
-	wp_enqueue_style('ukmmateriell', plugin_dir_url( __FILE__ ) .'/css/ukmmateriell.css');
+	wp_enqueue_style('ukmmateriell', plugin_dir_url( __FILE__ ) .'css/ukmmateriell.css');
 }
