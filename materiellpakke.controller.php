@@ -42,7 +42,8 @@ if($_SERVER['REQUEST_METHOD']==='POST') {
 	// KOMMUNE-SKJEMA (STEG 2)
 	$kommuner = array();
 	$sql = new SQL("SELECT `mat`.*,
-						   `kommune`.`name` AS `navn`
+						   `kommune`.`name` AS `navn`,
+						   `kommune`.`id` AS `kommune_id`
 					FROM `smartukm_kommune` AS `kommune`
 					LEFT JOIN `wp_materiell` AS `mat` ON (`mat`.`kommune_id` = `kommune`.`id`)
 					WHERE `kommune`.`idfylke` = '".get_option('fylke')."'
