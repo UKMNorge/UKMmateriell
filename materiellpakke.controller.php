@@ -41,10 +41,12 @@ if($_SERVER['REQUEST_METHOD']==='POST') {
 	}
 	// KOMMUNE-SKJEMA (STEG 2)
 	$kommuner = array();
-	$sql = new SQL("SELECT *, `kommune_navn` AS `navn`
-					FROM `wp_materiell`
-					WHERE `fylke_id` = '".get_option('fylke')."'
-					ORDER BY `navn` ASC");
+	$sql = new SQL("SELECT `mat`.*,
+						   `mat`.`kommune_navn` AS `navn`
+					FROM `smartukm_kommune` AS `kommune`
+					LEFT JOIN `wp_materiell` AS `mat` ON (`mat`.`kommune_id` = `kommune`.`id`)
+					WHERE `kommune`.`idfylke` = '".get_option('fylke')."'
+					ORDER BY `kommune`.`navn` ASC");
 	$res = $sql->run();
 	while ($row = mysql_fetch_assoc($res)) {
 		foreach($row as $key => $val) {
