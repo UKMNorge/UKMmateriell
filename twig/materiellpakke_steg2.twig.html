@@ -1,9 +1,10 @@
-<h4>Gå til kommune</h4>
-{% for kommune in kommuner %}
-	<a href="#kommune_{{kommune.kommune_id}}">{{kommune.navn}}</a>
-	{% if not loop.last %} | {% endif %}
-{% endfor %}
-<br />
+<div style="width: 775px;">
+	<h4>Gå til kommune</h4>
+	{% for kommune in kommuner %}
+		<a href="#kommune_{{kommune.kommune_id}}">{{kommune.navn}}</a>
+		{% if not loop.last %} | {% endif %}
+	{% endfor %}
+</div>
 
 <form method="POST">
 	<div id="hugesubmit"><div id="lagre">Lagre</div></div>
