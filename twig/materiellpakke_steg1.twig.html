@@ -45,9 +45,9 @@
 			<div class="form-field form-required" style="margin-top: 2px; margin-bottom: 0px;">
 				<label for="fylke_sendes">Hvordan skal pakkene sendes?</label>
 				<select name="fylke_sendes" id="fylke_sendes" style="width: 95%;" aria-required="true">
-					<option value="allesendes"{% if fylke.hvordansendes == "allesendes"}selected="selected"{% endif %}>
+					<option value="allesendes"{% if fylke.hvordansendes == "allesendes" %}selected="selected"{% endif %}>
 						Alle pakkene sendes til fylkesadressen sammen med fylkespakken</option>
-					<option value="direktealle"{% if fylke.hvordansendes == "direktealle"}selected="selected"{% endif %}>
+					<option value="direktealle"{% if fylke.hvordansendes == "direktealle" %}selected="selected"{% endif %}>
 						Alle pakkene sendes direkte til kommunene</option>
 				</select>
 			</div>
