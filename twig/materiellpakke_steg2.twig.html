@@ -35,7 +35,20 @@
 				<input name="kommune_ekstradiplom[]" type="hidden" value="{{kommune.ekstradiplom}}" />
 			</div>				
 		{% else %}
+		
+		<div class="form-field form-required" style="margin-top: 2px; margin-bottom: 0px;">
+			<label for="kommune_valg[]">Mottak av pakke</label>
+			<select name="kommune_valg[]" id="kommune_valg[]" style="width: 95%;" aria-required="true">
+				<option value="skalha"{{ kommune.skalha == "skalha" ? 'selected="selected"' : '' }}>
+					Skal ha materiellpakke
+				</option>
+				<option value="arrikke"{{ kommune.skalha != "skalha" ? 'selected="selected"' : '' }}>
+					Arrangerer ikke m&oslash;nstring / deler pakke med en annen kommune
+				</option>
+			</select>
+		</div>
 
+		<hr />
 
 		<div class="form-wrap" style="width: 40%; float: right;">
 			<div class="form-field form-required" style="margin-top: 2px; margin-bottom: 0px;">
@@ -66,17 +79,6 @@
 
 
 		<div class="form-wrap" style="width: 40%; float: left;">
-			<div class="form-field form-required" style="margin-top: 2px; margin-bottom: 0px;">
-				<label for="kommune_valg[]">Mottak av pakke</label>
-				<select name="kommune_valg[]" id="kommune_valg[]" style="width: 95%;" aria-required="true">
-					<option value="skalha"{{ kommune.skalha == "skalha" ? 'selected="selected"' : '' }}>
-						Skal ha materiellpakke
-					</option>
-					<option value="arrikke"{{ kommune.skalha != "skalha" ? 'selected="selected"' : '' }}>
-						Arrangerer ikke m&oslash;nstring / deler pakke med en annen kommune
-					</option>
-				</select>
-			</div>
 			<div class="form-field form-required" style="margin-top: 2px; margin-bottom: 0px;">
 				<label for="kommune_kontaktperson[]">Kontaktperson</label>
 				<input name="kommune_kontaktperson[]" id="kommune_kontaktperson[]" type="text" value="{{kommune.kontaktperson}}" size="40" aria-required="true" />
