@@ -55,7 +55,7 @@ if($_SERVER['REQUEST_METHOD']==='POST') {
 			$sql->add('skalha', $aktiv ? $_POST['kommune_valg'][$i] : 'arrikke');
 			$sql->add('aktiv', $aktiv ? 'Ja' : 'Nei');
 			
-			echo $sql->debug();
+			$sql->run();
 		}
 	}
 	$steg = 2;
