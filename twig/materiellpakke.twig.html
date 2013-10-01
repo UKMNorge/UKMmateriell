@@ -1,10 +1,16 @@
 <div class="wrap">
 	<h1>Bestill materiellpakker</h1>
-	<h2>Steg 1 av 2</h2>
-	Feltene nedenfor inneholder i utgangspunktet dataene du sendte inn i fjor.<br />
-	Korriger skjemaet slik at det gjelder årets bestilling, og trykk lagre helt nederst. <br />
-	Du kan korrigere så mange ganger du vil, helt frem til fristen.<br />
-	
-	{% embed "materiellpakke_steg1.twig.html" %}{% endembed %}
-
+	{% if steg == 1 %}
+		<h2>Steg 1 av 2</h2>
+		Feltene nedenfor inneholder i utgangspunktet dataene du sendte inn i fjor.<br />
+		Korriger skjemaet slik at det gjelder årets bestilling, og trykk lagre helt nederst. <br />
+		Du kan korrigere så mange ganger du vil, helt frem til fristen ({{deadline}}) .<br />
+		{% embed "materiellpakke_steg1.twig.html" %}{% endembed %}
+	{% else %}
+		<h2>Steg 2 av 2</h2>
+		Feltene nedenfor inneholder i utgangspunktet dataene du sendte inn i fjor.<br />
+		Korriger skjemaet slik at det gjelder årets bestilling, og trykk lagre helt nederst. <br />
+		Du kan korrigere så mange ganger du vil, helt frem til fristen ({{deadline}}) .<br />
+		{% embed "materiellpakke_steg2.twig.html" %}{% endembed %}
+	{% endif %}
 </div>
