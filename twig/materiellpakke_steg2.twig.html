@@ -1,7 +1,12 @@
-<h4>Steg 2 av 2</h4>
-
+<h4>Gå til kommune</h4>
+{% for kommune in kommuner %}
+	<a href="#kommune_{{kommune.kommune_id}}">{{kommune.navn}}</a>
+	{% if !loop.last %} | {% endif %}
+{% endfor %}
+<br />
 <form method="POST">
 	{% for kommune in kommuner %}
+	<a name="kommune_{{kommune.kommune_id}}"></a>
 	<fieldset class="widefat" style="margin: 10px; margin-top: 18px; width: auto; background: #f1f1f1; padding: 8px;">
 		<legend style="border: none; margin-left: 10px; font-weight: bold; font-size: 16px;">{{kommune.navn}}</legend>
 		<p><strong>Del av mønstring:</strong> {{ kommune.delavmonstring is empty ? "Ikke del av noen mønstring" : kommune.delavmonstring }}

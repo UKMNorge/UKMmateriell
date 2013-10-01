@@ -21,11 +21,6 @@ if($_SERVER['REQUEST_METHOD']==='POST') {
 		$sql->add('fylke_tid', time());
 		$sql->run();
 	} elseif (isset($_POST['submitSteg2'])) {
-		echo '<pre>';
-		var_dump($_POST);
-		echo '</pre>';
-		
-		
 		## LOOP ALLE KOMMUNE-ID-FELT
 		for($i=0; $i<sizeof($_POST['kommune_id']); $i++) {
 
