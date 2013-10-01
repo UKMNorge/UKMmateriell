@@ -46,12 +46,15 @@ if($_SERVER['REQUEST_METHOD']==='POST') {
 					FROM `smartukm_kommune` AS `kommune`
 					LEFT JOIN `wp_materiell` AS `mat` ON (`mat`.`kommune_id` = `kommune`.`id`)
 					WHERE `kommune`.`idfylke` = '".get_option('fylke')."'
-					ORDER BY `kommune`.`navn` ASC");
+					ORDER BY `kommune`.`name` ASC");
 	$res = $sql->run();
 	while ($row = mysql_fetch_assoc($res)) {
 		foreach($row as $key => $val) {
 			$row[$key] = utf8_encode($val);
 		}
+		$monstring = new kommune_monstring($row['kommune_id'], get_option('season'));
+		$monstring = $monstring->monstring_get();
+		$row['delavmonstring'] = $monstring->get('pl_name');
 		$kommuner[$row['kommune_id']] = $row;
 	}
 
