@@ -5,6 +5,23 @@
 	<fieldset class="widefat" style="margin: 10px; margin-top: 18px; width: auto; background: #f1f1f1; padding: 8px;">
 		<legend style="border: none; margin-left: 10px; font-weight: bold; font-size: 16px;">{{kommune.navn}}</legend>
 		<p><strong>Del av mønstring:</strong> {{ kommune.delavmonstring is empty ? "Ikke del av noen mønstring" : kommune.delavmonstring }}
+		{% if kommune.skalha != "skalha" %} 
+			<div class="form-field form-required" style="margin-top: 2px; margin-bottom: 0px;">
+				<label for="kommune_valg[]">Mottak av pakke</label>
+				<select name="kommune_valg[]" id="kommune_valg[]" style="width: 95%;" aria-required="true">
+					<option value="skalha">
+						Skal ha materiellpakke
+					</option>
+					<option value="arrikke" selected="selected">
+						Arrangerer ikke m&oslash;nstring / deler pakke med en annen kommune
+					</option>
+				</select>
+				<p style="margin-bottom: 0px;">
+					Hvis {{kommune.navn}} skal ha materiellpakke, velg "Skal ha mønstring" og lagre i bunn av siden.
+					Resten av skjemaet for {{kommune.navn}} vil da vises.
+				</p>
+			</div>				
+		{% else %}
 		<div class="form-wrap" style="width: 350px;">
 			<div class="form-field form-required" style="margin-top: 2px; margin-bottom: 0px;">
 				<label for="kommune_valg[]">Mottak av pakke</label>
@@ -61,6 +78,7 @@
 			</div>
 			<input name="kommune_id[]" type="hidden" value="{{kommune.kommune_id}}" id="kommune_id[]" />
 		</div>
+		{% endif %}
 	</fieldset>
 	{% endfor %}
 	<div class="form-wrap" style="width: 350px;">
