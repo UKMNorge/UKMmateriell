@@ -3,7 +3,7 @@
 // FYLKE-INFOS
 $sql = new SQL("SELECT * FROM wp_materiell_fylke WHERE wp_materiell_fylke.fylke_id = '".get_option('fylke')."'");
 $fylkeinfos = $sql->run('array');
-foreach($res as $key => $val) {
+foreach($fylkeinfos as $key => $val) {
 	$newkey = str_replace('fylke_','', $key);
 	$fylkedata[$newkey] = utf8_encode($val);
 }
