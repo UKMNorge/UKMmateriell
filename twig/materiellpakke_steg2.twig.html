@@ -1,7 +1,7 @@
 <h4>Gå til kommune</h4>
 {% for kommune in kommuner %}
 	<a href="#kommune_{{kommune.kommune_id}}">{{kommune.navn}}</a>
-	{% if !loop.last %} | {% endif %}
+	{% if not loop.last %} | {% endif %}
 {% endfor %}
 <br />
 <form method="POST">
