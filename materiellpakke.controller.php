@@ -28,9 +28,22 @@ if($_SERVER['REQUEST_METHOD']==='POST') {
 		
 		## LOOP ALLE KOMMUNE-ID-FELT
 		for($i=0; $i<sizeof($_POST['kommune_id']); $i++) {
+
+			$kommune = $_POST['kommune_id'][$i];
 			$aktiv = $_POST['kommune_valg'][$i] == 'skalha';
-						
-			$sql = new SQLins('wp_materiell', array('kommune_id'=>$_POST['kommune_id'][$i]));
+
+			$test = new SQL("SELECT `kommune_id`
+							 FROM `wp_materiell`
+							 WHERE `kommune_id` = '#kommuneid'",
+							 array('kommuneid' => $kommune));
+			$test = $test->run();
+			
+			if(mysql_num_rows($test)==0)
+				$sql = new SQLins('wp_materiell');
+			else
+				$sql = new SQLins('wp_materiell', array('kommune_id'=>$_POST['kommune_id'][$i])); 
+				
+			$sql->add('kommune_id', $kommune);
 			$sql->add('kontaktperson', $_POST['kommune_kontaktperson'][$i]);
 			$sql->add('adresse', $_POST['kommune_adresse'][$i]);
 			$sql->add('adressat', $_POST['kommune_adressat'][$i]);
