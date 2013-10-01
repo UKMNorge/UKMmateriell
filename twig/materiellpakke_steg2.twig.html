@@ -17,9 +17,17 @@
 					</option>
 				</select>
 				<p style="margin-bottom: 0px;">
-					Hvis {{kommune.navn}} skal ha materiellpakke, velg "Skal ha mønstring" og lagre i bunn av siden.
-					Resten av skjemaet for {{kommune.navn}} vil da vises.
+					Hvis {{kommune.navn}} skal ha materiellpakke velger du "Skal ha mønstring", og trykker lagre i bunn av siden.
+					Resten av skjemaet for {{kommune.navn}} vil da vises når siden lastes på nytt.
 				</p>
+				<input name="kommune_kontaktperson[]" type="hidden" value="{{kommune.kontaktperson}}" />
+				<input name="kommune_adressat[]" type="hidden" value="{{kommune.adressat}}" />
+				<input name="kommune_adresse[]" type="hidden" value="{{kommune.adresse}}" />
+				<input name="kommune_postnr[]" type="hidden" value="{{kommune.postnummer}}" />
+				<input name="kommune_sted[]" type="hidden" value="{{kommune.sted}}" />
+				<input name="kommune_valg_pakke[]" type="hidden" value="{{kommune.pakke}}" />
+				<input name="kommune_miljo[]" type="hidden" value="{{kommune.miljo}}" />
+				<input name="kommune_ekstradiplom[]" type="hidden" value="{{kommune.ekstradiplom}}" />
 			</div>				
 		{% else %}
 		<div class="form-wrap" style="width: 350px;">
@@ -76,9 +84,9 @@
 				<label for="kommune_ekstradiplom[]">Antall ekstra diplomer</label>
 				<input name="kommune_ekstradiplom[]" id="kommune_ekstradiplom[]" type="text" value="{{kommune.diplomer}}" size="40" aria-required="true" />
 			</div>
-			<input name="kommune_id[]" type="hidden" value="{{kommune.kommune_id}}" id="kommune_id[]" />
 		</div>
 		{% endif %}
+		<input name="kommune_id[]" type="hidden" value="{{kommune.kommune_id}}" id="kommune_id[]" />
 	</fieldset>
 	{% endfor %}
 	<div class="form-wrap" style="width: 350px;">

@@ -20,13 +20,32 @@ if($_SERVER['REQUEST_METHOD']==='POST') {
 		$sql->add('fylke_kommentarer',$_POST['fylke_kommentarer']);
 		$sql->add('fylke_tid', time());
 		$sql->run();
-		
-		$steg = 2;
 	} elseif (isset($_POST['submitSteg2'])) {
 		echo '<pre>';
 		var_dump($_POST);
 		echo '</pre>';
+		
+		
+		## LOOP ALLE KOMMUNE-ID-FELT
+		for($i=0; $i<sizeof($_POST['kommune_id']); $i++) {
+			$aktiv = $_POST['kommune_valg'][$i] == 'skalha';
+						
+			$sql = new SQLins('wp_materiell', array('kommune_id'=>$_POST['kommune_id'][$i]));
+			$sql->add('kontaktperson', $_POST['kommune_kontaktperson'][$i]);
+			$sql->add('adresse', $_POST['kommune_adresse'][$i]);
+			$sql->add('adressat', $_POST['kommune_adressat'][$i]);
+			$sql->add('postnummer', $_POST['kommune_postnr'][$i]);
+			$sql->add('sted', $_POST['kommune_sted'][$i]);
+			$sql->add('pakke', $_POST['kommune_valg_pakke'][$i]);
+			$sql->add('miljo', $_POST['kommune_miljo'][$i]);
+			$sql->add('diplomer', $_POST['kommune_ekstradiplom'][$i]);
+			$sql->add('skalha', $aktiv ? $_POST['kommune_valg'][$i] : 'arrikke');
+			$sql->add('aktiv', $aktiv ? 'Ja' : 'Nei');
+			
+			$sql->run();
+		}
 	}
+	$steg = 2;
 }
 
 // HENT DATA
@@ -53,6 +72,10 @@ if($_SERVER['REQUEST_METHOD']==='POST') {
 		foreach($row as $key => $val) {
 			$row[$key] = utf8_encode($val);
 		}
+		// Deaktiverer deaktiverte (doh)
+		if($row['aktiv']=='Nei')
+			$row['skalha'] = 'arrikke';
+		
 		$monstring = new kommune_monstring($row['kommune_id'], get_option('season'));
 		$monstring = $monstring->monstring_get();
 		$row['delavmonstring'] = $monstring->get('pl_name');
