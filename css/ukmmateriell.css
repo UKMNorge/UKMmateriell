@@ -3,3 +3,5 @@
 	width: 350px;
 	float: left;
 }
+
+a[name] { line-height: 1em; display: inline-block; padding-top: 30px; }
