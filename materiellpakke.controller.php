@@ -2,7 +2,7 @@
 
 $steg = 1;
 
-if($_SERVER['REQUEST_TYPE']==='POST') {
+if($_SERVER['REQUEST_METHOD']==='POST') {
 	// LAGRE STEG 1
 	if(isset($_POST['fylke_kontaktperson'])) {
 		$tid = time();
