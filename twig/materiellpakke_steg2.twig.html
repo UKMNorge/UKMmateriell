@@ -35,7 +35,7 @@
 				<input name="kommune_ekstradiplom[]" type="hidden" value="{{kommune.ekstradiplom}}" />
 			</div>				
 		{% else %}
-		<div class="form-wrap" style="width: 350px;">
+		<div class="form-wrap" style="width: 300px; float: left;">
 			<div class="form-field form-required" style="margin-top: 2px; margin-bottom: 0px;">
 				<label for="kommune_valg[]">Mottak av pakke</label>
 				<select name="kommune_valg[]" id="kommune_valg[]" style="width: 95%;" aria-required="true">
@@ -65,6 +65,8 @@
 				<input name="kommune_postnr[]" id="kommune_postnr[]" value="{{kommune.postnummer}}" type="text" size="6" style="width: 25%;margin-right: 3%;" aria-required="true" />
 				<input name="kommune_sted[]" id="kommune_sted[]" value="{{kommune.sted}}" type="text" size="30" style="width: 67%;margin-left: 0;" aria-required="true" />
 			</div>
+		</div>
+		<div class="form-wrap" style="width: 300px; float: left;">
 			<div class="form-field form-required" style="margin-top: 2px; margin-bottom: 0px;">
 				<label for="kommune_valg_pakke[]">Valg av pakke</label>
 				<select name="kommune_valg_pakke[]" id="kommune_valg_pakke[]" style="width: 95%;" aria-required="true">
@@ -92,6 +94,7 @@
 		</div>
 		{% endif %}
 		<input name="kommune_id[]" type="hidden" value="{{kommune.kommune_id}}" id="kommune_id[]" />
+		<div style="clear: both;"></div>
 	</fieldset>
 	{% endfor %}
 	<div class="form-wrap" style="width: 350px;">
