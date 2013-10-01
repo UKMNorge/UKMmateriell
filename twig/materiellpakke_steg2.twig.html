@@ -4,12 +4,15 @@
 	{% if not loop.last %} | {% endif %}
 {% endfor %}
 <br />
+
 <form method="POST">
+	<div id="hugesubmit"><div id="lagre">Lagre</div></div>
+
 	{% for kommune in kommuner %}
 	<a name="kommune_{{kommune.kommune_id}}"></a>
 	<fieldset class="widefat" style="margin: 10px; margin-top: 18px; width: auto; background: #f1f1f1; padding: 8px;">
 		<legend style="border: none; margin-left: 10px; font-weight: bold; font-size: 16px;">{{kommune.navn}}</legend>
-		<p><strong>Del av mønstring:</strong> {{ kommune.delavmonstring is empty ? "Ikke del av noen mønstring" : kommune.delavmonstring }}
+		<p><strong>Del av mønstring:</strong> {{ kommune.delavmonstring is empty ? "Ikke del av noen mønstring" : kommune.delavmonstring }}</p>
 		{% if kommune.skalha != "skalha" %} 
 			<div class="form-field form-required" style="margin-top: 2px; margin-bottom: 0px;">
 				<label for="kommune_valg[]">Mottak av pakke</label>
@@ -22,7 +25,7 @@
 					</option>
 				</select>
 				<p style="margin-bottom: 0px;">
-					Hvis {{kommune.navn}} skal ha materiellpakke velger du "Skal ha mønstring", og trykker lagre i bunn av siden.
+					Hvis {{kommune.navn}} skal ha materiellpakke velger du "Skal ha mønstring", og trykker lagre.
 					Resten av skjemaet for {{kommune.navn}} vil da vises når siden lastes på nytt.
 				</p>
 				<input name="kommune_kontaktperson[]" type="hidden" value="{{kommune.kontaktperson}}" />
