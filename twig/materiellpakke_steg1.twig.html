@@ -4,22 +4,16 @@
 		<div class="form-wrap" style="width: 350px;">
 			<div class="form-field form-required" style="margin-top: 2px; margin-bottom: 0px;">
 				<label for="fylke_kontaktperson">Navn</label>
-				<input name="fylke_kontaktperson" id="fylke_kontaktperson" type="text" value="Leif Lillejordet" size="40" aria-required="true" />
+				<input name="fylke_kontaktperson" id="fylke_kontaktperson" type="text" value="{{fylke.kontakt}}" size="40" aria-required="true" />
 			</div>
 			<div class="form-field form-required" style="margin-top: 2px; margin-bottom: 0px;">
 				<label for="fylke_kontakt_epost">E-post</label>
-				<input name="fylke_kontakt_epost" id="fylke_kontakt_epost" type="text" value="leif.lillejordet@musikk.no" size="40" aria-required="true" />
+				<input name="fylke_kontakt_epost" id="fylke_kontakt_epost" type="text" value="{{fylke.epost}}" size="40" aria-required="true" />
 			</div>
 			<div class="form-field form-required" style="margin-top: 2px; margin-bottom: 0px;">
 				<label for="fylke_kontakt_mobil">Mobiltelefon</label>
-				<input name="fylke_kontakt_mobil" id="fylke_kontakt_mobil" type="text" value="46502205" size="40" aria-required="true" />
+				<input name="fylke_kontakt_mobil" id="fylke_kontakt_mobil" type="text" value="{{fylke.mobil}}" size="40" aria-required="true" />
 			</div>
-	{#
-			<input name="log_current_value_fylke_kontaktperson" type="hidden" value="Leif Lillejordet" id="log_current_value_fylke_kontaktperson" />
-			<input name="log_current_value_fylke_kontakt_epost" type="hidden" value="leif.lillejordet@musikk.no" id="log_current_value_fylke_kontakt_epost" />
-			<input name="log_current_value_fylke_kontakt_epost" type="hidden" value="leif.lillejordet@musikk.no" id="log_current_value_fylke_kontakt_epost" />
-			<input name="log_current_value_fylke_kontakt_mobil" type="hidden" value="46502205" id="log_current_value_fylke_kontakt_mobil" />
-	#}
 		</div>
 	</fieldset>
 	<fieldset class="widefat" style="margin: 10px; margin-top: 18px; width: auto; background: #f1f1f1; padding: 8px;">
@@ -27,28 +21,22 @@
 		<div class="form-wrap" style="width: 350px;">
 			<div class="form-field form-required" style="margin-top: 2px; margin-bottom: 0px;">
 				<label for="fylke_diplomer">Behov for ekstra fylkesdiplomer ut over 300 stk</label>
-				<input name="fylke_diplomer" id="fylke_diplomer" type="text" value="700" size="40" aria-required="true" />
+				<input name="fylke_diplomer" id="fylke_diplomer" type="text" value="{{fylke.ekstrapdiplom}}" size="40" aria-required="true" />
 			</div>
 			<div class="form-field form-required" style="margin-top: 2px; margin-bottom: 0px;">
 				<label for="fylke_adressat">Adressat</label>
-				<input name="fylke_adressat" id="fylke_adressat" type="text" value="Akershus musikkråd" size="40" aria-required="true" />
+				<input name="fylke_adressat" id="fylke_adressat" type="text" value="{{fylke.adressat}}" size="40" aria-required="true" />
 			</div>
 				<div class="form-field form-required" style="margin-top: 2px; margin-bottom: 0px;">
 				<label for="fylke_adresse">Leveringsadresse</label>
-				<input name="fylke_adresse" id="fylke_adresse" type="text" value="Fetveien 1E" size="40" aria-required="true" />
+				<input name="fylke_adresse" id="fylke_adresse" type="text" value="{{fylke.adresse}}" size="40" aria-required="true" />
 				<p style="margin-bottom: 0px;">(OBS: Pakken kommer med bud til denne adressen)</p>
 			</div>
 			<div class="form-field form-required" style="margin-top: 2px; margin-bottom: 0px;">
 				<label for="Array">Postnummer og -sted</label>
-				<input name="fylke_postnr" id="fylke_postnr" value="2007" type="text" size="6" style="width: 25%;margin-right: 3%;" aria-required="true" />
-				<input name="fylke_sted" id="fylke_sted" value="Kjeller" type="text" size="30" style="width: 67%;margin-left: 0;" aria-required="true" />
+				<input name="fylke_postnr" id="fylke_postnr" value="{{fylke.postnr}}" type="text" size="6" style="width: 25%;margin-right: 3%;" aria-required="true" />
+				<input name="fylke_sted" id="fylke_sted" value="{{fylke.sted}}" type="text" size="30" style="width: 67%;margin-left: 0;" aria-required="true" />
 			</div>
-	
-	{#		<input name="log_current_value_fylke_diplomer" type="hidden" value="700" id="log_current_value_fylke_diplomer" />
-			<input name="log_current_value_fylke_adressat" type="hidden" value="Akershus musikkråd" id="log_current_value_fylke_adressat" />
-			<input name="log_current_value_fylke_adresse" type="hidden" value="Fetveien 1E" id="log_current_value_fylke_adresse" />
-			<input name="log_current_value_Array" type="hidden" value="Array" id="log_current_value_Array" />
-	#}
 		</div>
 	</fieldset>
 	<fieldset class="widefat" style="margin: 10px; margin-top: 18px; width: auto; background: #f1f1f1; padding: 8px;">
@@ -57,17 +45,14 @@
 			<div class="form-field form-required" style="margin-top: 2px; margin-bottom: 0px;">
 				<label for="fylke_sendes">Hvordan skal pakkene sendes?</label>
 				<select name="fylke_sendes" id="fylke_sendes" style="width: 95%;" aria-required="true">
-					<option value="allesendes">Alle pakkene sendes til fylkesadressen sammen med fylkespakken</option>
-					<option value="direktealle" selected="selected">Alle pakkene sendes direkte til kommunene</option>
+					<option value="allesendes"{% if fylke.hvordansendes == "allesendes"}selected="selected"{% endif %}>
+						Alle pakkene sendes til fylkesadressen sammen med fylkespakken</option>
+					<option value="direktealle"{% if fylke.hvordansendes == "direktealle"}selected="selected"{% endif %}>
+						Alle pakkene sendes direkte til kommunene</option>
 				</select>
 			</div>
-		<input name="fylke_navn" type="hidden" value="Akershus" id="fylke_navn" />
-		<input name="fylke_id[]" type="hidden" value="2" id="fylke_id[]" />
-		
-	{#	<input name="log_current_value_fylke_id[]" type="hidden" value="2" id="log_current_value_fylke_id[]" />
-		<input name="log_current_value_fylke_navn" type="hidden" value="Akershus" id="log_current_value_fylke_navn" />
-		<input name="log_current_value_fylke_sendes" type="hidden" value="direktealle" id="log_current_value_fylke_sendes" />
-	#}
+		<input name="fylke_navn" type="hidden" value="{{fylke.navn}}" id="fylke_navn" />
+		<input name="fylke_id[]" type="hidden" value="{{fylke.id}}" id="fylke_id[]" />
 		</div>
 	</fieldset>
 	<fieldset class="widefat" style="margin: 10px; margin-top: 18px; width: auto; background: #f1f1f1; padding: 8px;">
@@ -75,9 +60,8 @@
 		<div class="form-wrap" style="width: 350px;">
 			<div class="form-field form-required" style="margin-top: 2px; margin-bottom: 0px;">
 				<label for="fylke_kommentarer"></label>
-				<textarea name="fylke_kommentarer" id="fylke_kommentarer" aria-required="true" style="width: 450px; height:200px;"></textarea>
+				<textarea name="fylke_kommentarer" id="fylke_kommentarer" aria-required="true" style="width: 450px; height:200px;">{{fylke.kommentarer}}</textarea>
 			</div>
-			<input name="log_current_value_fylke_kommentarer" type="hidden" value=" " id="log_current_value_fylke_kommentarer" />
 		</div>
 	</fieldset>
 	<div class="form-wrap" style="width: 350px;">
