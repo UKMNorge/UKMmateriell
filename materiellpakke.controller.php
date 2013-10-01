@@ -22,6 +22,10 @@ if($_SERVER['REQUEST_METHOD']==='POST') {
 		$sql->run();
 		
 		$steg = 2;
+	} elseif (isset($_POST['submitSteg2'])) {
+		echo '<pre>';
+		var_dump($_POST);
+		echo '</pre>';
 	}
 }
 
