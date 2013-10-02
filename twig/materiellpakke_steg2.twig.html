@@ -17,7 +17,6 @@
 			<p><strong>Del av mønstring:</strong> {{ kommune.delavmonstring is empty ? "Ikke del av noen mønstring" : kommune.delavmonstring }}</p>
 			{% if kommune.skalha != "skalha" %} 
 				<div class="form-field form-required" style="margin-top: 2px; margin-bottom: 0px;">
-					<label for="kommune_valg[]">Mottak av pakke</label>
 					<select name="kommune_valg[]" id="kommune_valg[]" style="width: 95%;" aria-required="true">
 						<option value="skalha">
 							Skal ha materiellpakke
@@ -42,7 +41,6 @@
 			{% else %}
 			
 			<div class="form-field form-required" style="margin-top: 2px; margin-bottom: 0px;">
-				<label for="kommune_valg[]">Mottak av pakke</label>
 				<select name="kommune_valg[]" id="kommune_valg[]" style="width: 95%;" aria-required="true">
 					<option value="skalha"{{ kommune.skalha == "skalha" ? 'selected="selected"' : '' }}>
 						Skal ha materiellpakke
@@ -66,10 +64,10 @@
 					<label for="kommune_miljo[]">Miljøpakke</label>
 					<select name="kommune_miljo[]" id="kommune_miljo[]" style="width: 95%;" aria-required="true">
 						<option value="vanlig" {{ kommune.miljo == 'vanlig' ? 'selected="selected"' : ''}}>
-							Vil ha full (vanlig) pakke
+							Nei, vil ha full (vanlig) pakke
 						</option>
 						<option value="papermill" {{ kommune.pakke == 'papermill' ? 'selected="selected"' : ''}}>
-							Vil ikke ha arrangementsplakat, lager denne selv i papermill
+							Ja, jeg vil ha miljøpakke uten plakater og diplomer
 						</option>
 					</select>
 					<p style="margin-bottom: 0px;">Valg av miljøpakke reduserer prisen med kr. 200,-</p>
