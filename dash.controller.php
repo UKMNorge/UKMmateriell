@@ -6,7 +6,7 @@ $cuid = $current_user->ID;
 $bruker = $wpdb->get_row("SELECT `b_id` FROM `ukm_brukere`
 						  WHERE `wp_bid` = '".$cuid."'");	
 $infos = array('user_id' => $bruker->b_id,
-		   'user_key'	=> UKM_INSTRATO_SALT . $bruker->b_id . UKM_INSTRATO_PEPPER,
+		   'user_key'	=> md5(UKM_INSTRATO_SALT . $bruker->b_id . UKM_INSTRATO_PEPPER),
 		   'site_type' => get_option('site_type'),
 		   'season' => get_option('season'),
 		   'deadline' => '21.10.2013'
