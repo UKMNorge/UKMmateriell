@@ -21,9 +21,15 @@ if(is_admin()) {
 
 function UKMmateriell_menu() {
 	$page = add_menu_page('Materiell', 'Materiell', 'editor', 'UKMmateriell', 'UKMmateriell', 'http://ico.ukm.no/kolli-menu.png',125);
-	
+	add_action( 'admin_print_styles-' . $page, 'UKMmateriell_bootstrap' );	
+
 	if(get_option('site_type') == 'fylke')
 		$subpage = add_submenu_page('UKMmateriell', 'Bestill pakke', 'Bestill pakke', 'editor', 'UKMmateriellpakke', 'UKMmateriellpakke');
+}
+
+function UKMmateriell_bootstrap(){
+	wp_enqueue_script('bootstrap_js');
+	wp_enqueue_style('bootstrap_css');
 }
 
 function UKMmateriell() {
