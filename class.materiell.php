@@ -106,6 +106,7 @@ class materiell {
 		if(date('Y') == '2013' && !$this->oppdatert && $this->status == 'ikke_begynt') {
 				$updated = (int) $this->season - 1;
 				$this->oppdatert = (int) date('Y', $this->tid) != $updated;
+				$this->status = 'Ukjent';
 		}
 		
 		$this->status = str_replace('_', ' ', $this->status);
