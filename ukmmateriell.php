@@ -39,7 +39,7 @@ function UKMmateriell_bootstrap(){
 	wp_enqueue_script('bootstrap_js');
 	wp_enqueue_style('bootstrap_css');
 	
-//	wp_enqueue_script('UKMmateriell_pakkeinnhold', plugin_dir_url( __FILE__ ) . 'js/pakkeinnhold.materiellpakke.js');
+	wp_enqueue_script('UKMmateriell_pakkeinnhold', plugin_dir_url( __FILE__ ) . 'js/pakkeinnhold.materiellpakke.js');
 }
 
 function UKMpakkeinnhold() {
