@@ -55,7 +55,7 @@
 				<td>{{produkt.pakke_stor}}</td>
 				<td>{{produkt.pakke_fylke}}</td>
 				<td class="behov">{{produkt.behov}}</td>
-				<td class="opplag"><input type="number" name="produkt_{{produkt.id}}_opplag" value="{{produkt.opplag}}" /></td>
+				<td class="opplag"><input type="number" name="produkt[{{produkt.id}}]['opplag']" value="{{produkt.opplag}}" /></td>
 				<td class="rest"></td>
 			</tr>
 			{% endfor %}
@@ -63,6 +63,6 @@
 	
 	</fieldset>
 	<div class="form-wrap" style="width: 350px;">
-		<input type="submit" class="button" name="submit" id="submit" value="Lagre opplag" />
+		<input type="submit" class="button" name="submit_opplag" id="submit" value="Lagre opplag" />
 	</div>
 </form>

@@ -2,17 +2,22 @@
 require_once('class.materiell.php');
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
-	foreach($_POST as $key => $val) {
-		var_dump($_POST);
-		if( strpos($key, 'produkt_') !== false ) {
-			$infos = explode('_', $key);
-			$produkt = $infos[1];
-			$field = $infos[2];
-			
-			$sql = new SQLins('wp_materiell_produkt', array('produkt_id' => $produkt));
-			$sql->add($field, $val);
-			echo $sql->debug().'<br />';
+	if(isset($_POST['submit_opplag'])) {
+		foreach($_POST as $key => $val) {
+			if( strpos($key, 'produkt_') !== false ) {
+				$infos = explode('_', $key);
+				$produkt = $infos[1];
+				$field = $infos[2];
+				
+				$sql = new SQLins('wp_materiell_produkt', array('produkt_id' => $produkt));
+				$sql->add($field, $val);
+				$sql->run();
+			}
 		}
+	}
+	
+	if(isset($_POST['submit_pakkeinnhold'])) {
+		var_dump($_POST);
 	}
 }
 
