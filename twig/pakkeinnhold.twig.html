@@ -52,8 +52,8 @@
 			<td>{{produkt.pakke_medium}}</td>
 			<td>{{produkt.pakke_stor}}</td>
 			<td>{{produkt.pakke_fylke}}</td>
-			<td>{{produkt.behov}}</td>
-			<td><input type="number" name="produkt_{{produkt.id}}_opplag" value="{{produkt.opplag}}" /></td>
+			<td class="behov">{{produkt.behov}}</td>
+			<td class="opplag"><input type="number" name="produkt_{{produkt.id}}_opplag" value="{{produkt.opplag}}" /></td>
 			<td class="rest"></td>
 		</tr>
 		{% endfor %}
