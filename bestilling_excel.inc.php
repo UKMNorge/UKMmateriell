@@ -55,6 +55,7 @@ foreach( $infos['fylker'] as $fylke ) {
 	exCell('L'.$row, $fylke->forsendelse);
 	exCell('M'.$row, $fylke->kommentar);
 
+	$fylke->load_kommuner();
 	foreach( $fylke->kommuner as $kommune ) {
 		$row++;
 		
