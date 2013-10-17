@@ -16,5 +16,6 @@ while( $r = mysql_fetch_assoc( $fylker ) ) {
 	$fylkemateriell[] = $fylke;
 }
 
-
 $infos = array('fylker' => $fylkemateriell, 'ant_ikke_oppdatert' => $mangler);
+
+require_once('bestilling_excel.inc.php');

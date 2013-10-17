@@ -108,8 +108,20 @@ class materiell {
 				$this->oppdatert = (int) date('Y', $this->tid) != $updated;
 				$this->status = 'Ukjent';
 		}
-		
 		$this->status = str_replace('_', ' ', $this->status);
+		
+		// FORSENDELSE
+		if( $this->hvordansendes == 'direktealle' )
+			$this->forsendelse = 'Alle pakkene sendes direkte til kommunene';
+		elseif( $this->hvordansendes == 'allesendes' )
+			$this->forsendelse = 'Alle sendes til fylkesadressen med fylkespakken';
+		else
+			$this->forsendelse = 'Ukjent';
+		
+		// CALC EXCEL MESSAGE
+		$this->melding = 'Fylkespakke';
+		if($this->ekstradiplom > 0)
+			$this->melding .= ' (+'. $this->ekstradiplom .' diplomer)';
 	}
 	
 	
@@ -128,6 +140,13 @@ class materiell {
 				else
 					$kommune[$key] = $val;
 			}
+			
+			$kommune->melding = ucwords($kommune->pakke)
+							  . ($kommune->miljo == 'papermill' ? 'MILJØ' : ' ')
+							  . 'pakke';
+
+			if($kommune->diplomer > 0)
+				$kommune->melding .= ' (+'. $this->diplomer .' diplomer)';
 			
 			$this->kommuner[] = $kommune;
 		}

@@ -31,13 +31,7 @@
 			<td>{{fylke.navn|capitalize}}</td>
 			<td>{{fylke.status|capitalize}}</td>
 			<td>{{fylke.tid|date('d.m.Y H:i')}}</td>
-			<td>{% if fylke.hvordansendes == 'direktealle' %}
-				Alle pakkene sendes direkte til kommunene
-				{% elseif fylke.hvordansendes == 'allesendes' %}
-				Alle sendes til fylkesadressen med fylkespakken
-				{% else %}
-				Ukjent
-				{% endif %}</td>
+			<td>{{fylke.forsendelse}}</td>
 		</tr>
 		{% endfor %}
 	</table>
