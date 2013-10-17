@@ -50,7 +50,7 @@
 				<th>Beskjed</th>
 			</tr>
 		</thead>
-		{% for fylke in fylker %}
+		{% for fylke in fylker if kommentarer is not empty %}
 		<tr>
 			<td>{{fylke.navn|capitalize}}</td>
 			<td>{{fylke.kommentarer}}</td>
