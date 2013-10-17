@@ -17,7 +17,14 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 	}
 	
 	if( $_POST['save_what'] == 'pakkeinnhold') {
-		var_dump($_POST);
+		foreach($_POST['produkt'] as $id => $info) {
+			$sql = new SQLins('wp_materiell_produkt', array('produkt_id', $id);
+			$sql->add('pakke_mini', $info['pakke_mini']);
+			$sql->add('pakke_medium', $info['pakke_medium']);
+			$sql->add('pakke_stor', $info['pakke_stor']);
+			$sql->add('pakke_fylke', $info['pakke_fylke']);
+			echo $sql->debug().'<br />';
+		}
 	}
 }
 

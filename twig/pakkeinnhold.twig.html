@@ -19,10 +19,10 @@
 			{% for produkt in produkter %}
 			<tr class="produkt" id="produkt_{{produkt.id}}">
 				<td>{{produkt.navn}}</td>
-				<td><input type="number" name="produkt[{{produkt.id}}]['pakke_mini']" value="{{produkt.pakke_mini}}" /></td>
-				<td><input type="number" name="produkt[{{produkt.id}}]['pakke_medium']" value="{{produkt.pakke_medium}}" /></td>
-				<td><input type="number" name="produkt[{{produkt.id}}]['pakke_stor']" value="{{produkt.pakke_stor}}" /></td>
-				<td><input type="number" name="produkt[{{produkt.id}}]['pakke_fylke']" value="{{produkt.pakke_fylke}}" /></td>
+				<td><input type="number" name="produkt[{{produkt.id}}][pakke_mini]" value="{{produkt.pakke_mini}}" /></td>
+				<td><input type="number" name="produkt[{{produkt.id}}][pakke_medium]" value="{{produkt.pakke_medium}}" /></td>
+				<td><input type="number" name="produkt[{{produkt.id}}][pakke_stor]" value="{{produkt.pakke_stor}}" /></td>
+				<td><input type="number" name="produkt[{{produkt.id}}][pakke_fylke]" value="{{produkt.pakke_fylke}}" /></td>
 			</tr>
 			{% endfor %}
 		</table>
