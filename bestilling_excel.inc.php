@@ -80,8 +80,8 @@ foreach( $infos['fylker'] as $fylke ) {
 		exCell('F'.$row, ucwords($kontakt));
 		exCell('G'.$row, $melding);
 		exCell('H'.$row, $fylke->navn);
-		exCell('I'.$row, 'fylke');
-		exCell('J'.$row, 'nei');
+		exCell('I'.$row, $kommune->pakke);
+		exCell('J'.$row, $kommune->miljo == 'papermill' ? 'Ja' : 'Nei');
 		exCell('K'.$row, $kommune->diplomer);
 		exCell('L'.$row, $fylke->forsendelse);
 		exCell('M'.$row, '');
