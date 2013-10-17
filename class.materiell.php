@@ -1,6 +1,6 @@
 <?php
 
-class produkter {
+class produkt {
 	public function __construct($produkt_id) {
 		$qry = new SQL("SELECT * 
 						FROM `wp_materiell_produkt`
