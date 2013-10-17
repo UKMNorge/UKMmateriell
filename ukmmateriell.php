@@ -33,7 +33,7 @@ function UKMmateriell_menu() {
 
 		add_action( 'admin_print_styles-' . $page, 'UKMmateriell_bootstrap' );
 		add_action( 'admin_print_styles-' . $subpage1, 'UKMmateriell_bootstrap' );	
-		add_action( 'admin_print_styles-' . $subpage1, 'UKMmateriell_js_pakkeinnhold' );	
+
 		add_action( 'admin_print_styles-' . $subpage2, 'UKMmateriell_bootstrap' );	
 		add_action( 'admin_print_styles-' . $subpage2, 'UKMmateriell_js_opplag' );	
 
@@ -58,9 +58,6 @@ function UKMmateriell_js_opplag() {
 function UKMpakkeinnhold() {
 	require_once('opplag.controller.php');
 	echo TWIG('pakkeinnhold.twig.html', $infos , dirname(__FILE__));
-}
-function UKMmateriell_js_pakkeinnhold() {
-	wp_enqueue_script('UKMmateriell_pakkeinnhold', plugin_dir_url( __FILE__ ) . 'js/pakkeinnhold.materiellpakke.js');
 }
 
 
