@@ -3,7 +3,7 @@ require_once('class.materiell.php');
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
 	foreach($_POST as $key => $val) {
-
+		var_dump($_POST);
 		if( strpos($key, 'produkt_') !== false ) {
 			$infos = explode('_', $key);
 			$produkt = $infos[1];
