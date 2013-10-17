@@ -1,6 +1,32 @@
 <h2>Pakkeinnhold</h2>
 
 <fieldset class="ukmwidth">
+	<legend>Antall bestilte pakker</legend>
+		
+	<table class="table table-striped table-hover">
+		<thead>
+			<tr>
+				<th></th>
+				<th>Mini-pakke</th>
+				<th>Medium pakke</th>
+				<th>Stor pakke</th>
+				<th>Fylkes-pakke</th>
+			</tr>
+		</thead>
+		<tr class="pakker">
+			<td>Antall</td>
+			<td>{{pakker.mini.antall}}</td>
+			<td>{{pakker.medium.antall}}</td>
+			<td>{{pakker.stor.antall}}</td>
+			<td>{{pakker.fylke.antall}}</td>
+		</tr>
+		{% endfor %}
+	</table>
+
+</fieldset>
+	
+
+<fieldset class="ukmwidth">
 	<legend>Opplag og innhold for de forskjellige pakkene</legend>
 	<div class="alert alert-warning">
 		<strong>OBS: </strong>
