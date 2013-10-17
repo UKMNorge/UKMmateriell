@@ -74,16 +74,16 @@ foreach( $infos['fylker'] as $fylke ) {
 		exCell('A'.$row, $row-1);
 		exCell('B'.$row, ucwords($kommune->navn));
 		exCell('C'.$row, $adresse);
-		exCell('D'.$row, $postnr;
+		exCell('D'.$row, $postnr);
 		exCell('E'.$row, ucwords($poststed));
-		exCell('F'.$row, ucwords($kontakt);
+		exCell('F'.$row, ucwords($kontakt));
 		exCell('G'.$row, $melding);
 		exCell('H'.$row, $fylke->navn);
 		exCell('I'.$row, 'fylke');
 		exCell('J'.$row, 'nei');
 		exCell('K'.$row, $kommune->diplomer);
 		exCell('L'.$row, $fylke->forsendelse);
-		exCell('M'.$row, '');		
+		exCell('M'.$row, '');
 	}
 }
 
