@@ -47,14 +47,15 @@ class materiellpakke {
 		if(!$this->antall) {
 			if($this->type == 'fylke') {
 				$this->antall = 19;
+			} else {
+				$sql = new SQL("SELECT `pakke`, COUNT(`kommune_id`) AS `count`
+								FROM `wp_materiell`
+								WHERE `skalha` = 'skalha'
+								AND `pakke` = '#pakke'
+								GROUP BY `pakke`",
+								array('pakke' => $this->type));
+				$this->antall = $sql->run('field','count');
 			}
-			$sql = new SQL("SELECT `pakke`, COUNT(`kommune_id`) AS `count`
-							FROM `wp_materiell`
-							WHERE `skalha` = 'skalha'
-							AND `pakke` = '#pakke'
-							GROUP BY `pakke`",
-							array('pakke' => $this->type));
-			$this->antall = $sql->run('field','count');
 		}
 		return $this->antall;
 	}
