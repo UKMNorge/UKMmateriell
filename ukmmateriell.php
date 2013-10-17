@@ -14,9 +14,8 @@ require_once('UKM/monstring.class.php');
 ## HOOK MENU AND SCRIPTS
 if(is_admin()) {
 	global $blog_id;
-	if($blog_id != 1)
-		add_action('admin_menu', 'UKMmateriell_menu',100);
-		
+	add_action('admin_menu', 'UKMmateriell_menu',100);
+	
 	add_action( 'admin_enqueue_scripts', 'UKMmateriell_scriptsandstyles' );
 }
 
@@ -28,8 +27,13 @@ function UKMmateriell_menu() {
 }
 
 function UKMmateriell() {
-	require_once('dash.controller.php');
-	echo TWIG('dash.twig.html', $infos , dirname(__FILE__));
+	if($blog_id == 1) {
+		require_once('ukmnorge.controller.php');
+		echo TWIG('ukmnorge.twig.html');
+	} else {
+		require_once('dash.controller.php');
+		echo TWIG('dash.twig.html', $infos , dirname(__FILE__));
+	}
 }
 
 function UKMmateriellpakke() {
