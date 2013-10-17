@@ -31,7 +31,7 @@
 			<td>{{fylke.tid|date('d.m.Y H:i')}}</td>
 			<td>{% if fylke.hvordansendes == 'direktealle' %}
 				Alle pakkene sendes direkte til kommunene
-				{% else if fylke.hvordansendes == 'allesendes' %}
+				{% elseif fylke.hvordansendes == 'allesendes' %}
 				Alle sendes til fylkesadressen med fylkespakken
 				{% else %}
 				Ukjent
