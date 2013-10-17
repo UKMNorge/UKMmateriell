@@ -49,8 +49,8 @@ foreach( $infos['fylker'] as $fylke ) {
 	exCell('F'.$row, ucwords($fylke->kontakt));
 	exCell('G'.$row, $fylke->melding);
 	exCell('H'.$row, $fylke->navn);
-	exCell('I'.$row, 'fylke');
-	exCell('J'.$row, 'nei');
+	exCell('I'.$row, 'Fylke');
+	exCell('J'.$row, 'Nei');
 	exCell('K'.$row, $fylke->ekstradiplom);
 	exCell('L'.$row, $fylke->forsendelse);
 	exCell('M'.$row, $fylke->kommentar);
@@ -80,7 +80,7 @@ foreach( $infos['fylker'] as $fylke ) {
 		exCell('F'.$row, ucwords($kontakt));
 		exCell('G'.$row, $melding);
 		exCell('H'.$row, $fylke->navn);
-		exCell('I'.$row, $kommune->pakke);
+		exCell('I'.$row, ucwords($kommune->pakke));
 		exCell('J'.$row, $kommune->miljo == 'papermill' ? 'Ja' : 'Nei');
 		exCell('K'.$row, $kommune->diplomer);
 		exCell('L'.$row, $fylke->forsendelse);
