@@ -45,7 +45,7 @@
 			</tr>
 		</thead>
 		{% for fylke in fylker %}
-		<tr class="{{fylke.oppdatert ? '' : 'error'}}">
+		<tr>
 			<td>{{fylke.navn|capitalize}}</td>
 			<td>{{fylke.kommentarer}}</td>
 		</tr>

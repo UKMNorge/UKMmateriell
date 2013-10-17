@@ -2,7 +2,8 @@
 require_once('class.materiell.php');
 
 $fylker = new SQL("SELECT `id` FROM `smartukm_fylke`
-				   WHERE `id` < 21");
+				   WHERE `id` < 21
+				   ORDER BY `name` ASC");
 $fylker = $fylker->run();
 $mangler = 0;
 
