@@ -12,12 +12,13 @@ function calc_rest(produkt) {
 	console.log(produkt);
 	behov = parseInt( produkt.find('td.behov').html() );
 	opplag = parseInt ( jQuery(this).val() );
-/*
 	rest = opplag - behov;
+/*
 	if( rest >= 0)
 	  produkt.removeClass('error');
 	else
 	  produkt.addClass('error');
 */
+
 	produkt.find('td.rest').html( rest );
 }
