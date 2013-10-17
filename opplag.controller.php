@@ -2,7 +2,6 @@
 require_once('class.materiell.php');
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
-	var_dump($_POST);
 	if( $_POST['save_what'] == 'opplag') {
 		foreach($_POST as $key => $val) {
 			if( strpos($key, 'produkt_') !== false ) {
@@ -12,7 +11,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 				
 				$sql = new SQLins('wp_materiell_produkt', array('produkt_id' => $produkt));
 				$sql->add($field, $val);
-				echo $sql->debug().'<br />';
 				$sql->run();
 			}
 		}
