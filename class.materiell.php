@@ -14,7 +14,7 @@ class produkt {
 				$this->$newkey = utf8_encode($val);
 			else
 				$this->$newkey = $val;
-		}
+		}		
 	}
 	
 	public function behov($mini=false,$medium=false,$stor=false,$fylke=false) {
@@ -33,6 +33,22 @@ class produkt {
 					 + ( (int) $opplag_stor * (int) $this->pakke_stor )
 					 + ( (int) $opplag_fylke * (int) $this->pakke_fylke )
 					 ;
+					 
+					 
+		if($this->id == 25) {
+			// ALLE EKSTRA DIPLOMER
+			$fylkediplom = new SQL("SELECT SUM(`fylke_ekstradiplom`) AS `antall`
+									FROM `wp_materiell_fylke`");
+			$fylkediplom = (int) $fylkediplom->run('field','antall');
+			$this->behov += $fylkediplom;
+		}
+		
+		if($this->id == 24) {
+			$lokaldiplom = new SQL("SELECT SUM(`diplomer`) AS `antall`
+									FROM `wp_materiell`");
+			$lokaldiplom = (int) $lokaldiplom->run('field','antall');
+			$this->behov += $lokaldiplom;
+		}
 	}
 }
 

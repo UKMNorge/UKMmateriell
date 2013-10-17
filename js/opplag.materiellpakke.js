@@ -9,15 +9,7 @@ jQuery(document).ready(function() {
 });
 
 function calc_rest(produkt) {
-	behov = parseInt( produkt.find('td.behov').html() );
-	
-	if(produkt.attr('id') == 'produkt_24' ) {
-		behov = behov + parseInt( jQuery('#ekstradiplom_lokal').html() );
-	}
-	if(produkt.attr('id') == 'produkt_25' ) {
-		behov = behov + parseInt( jQuery('#ekstradiplom_fylke').html() );
-	}
-	
+	behov = parseInt( produkt.find('td.behov').html() );	
 	opplag = parseInt ( produkt.find('td.opplag input').val() );
 	rest = opplag - behov;
 	if( rest >= 0) {
