@@ -18,6 +18,7 @@ if($_SERVER['REQUEST_METHOD']==='POST') {
 		$sql->add('fylke_hvordansendes',$_POST['fylke_sendes']);
 		$sql->add('fylke_sendesdirekte',$_POST['fylke_sendesdirekte']);
 		$sql->add('fylke_kommentarer',$_POST['fylke_kommentarer']);
+		$sql->add('fylke_status',$_POST['fylke_status']);
 		$sql->add('fylke_tid', time());
 		$sql->run();
 	} elseif (isset($_POST['submitSteg2'])) {
