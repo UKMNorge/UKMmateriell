@@ -28,7 +28,6 @@ function UKMmateriell_menu() {
 
 	if(get_option('site_type') == 'fylke')
 		$subpage = add_submenu_page('UKMmateriell', 'Bestill pakke', 'Bestill pakke', 'editor', 'UKMmateriellpakke', 'UKMmateriellpakke');
-		add_action( 'admin_print_styles-' . $subpage, 'UKMmateriell_bootstrap' );
 
 		
 	if($blog_id == 1) {
