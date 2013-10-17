@@ -7,7 +7,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 		if( strpos($key, 'produkt_') !== false ) {
 			$infos = explode('_', $key);
 			$produkt = $infos[1];
-			$field = $$infos[2];
+			$field = $infos[2];
 			
 			$sql = new SQLins('wp_materiell_produkt', array('produkt_id' => $produkt));
 			$sql->add($field, $val);
