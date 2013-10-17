@@ -53,7 +53,7 @@ foreach( $infos['fylker'] as $fylke ) {
 	exCell('J'.$row, 'Nei');
 	exCell('K'.$row, $fylke->ekstradiplom);
 	exCell('L'.$row, $fylke->forsendelse);
-	exCell('M'.$row, $fylke->kommentar);
+	exCell('M'.$row, $fylke->kommentarer);
 
 	$fylke->load_kommuner();
 	foreach( $fylke->kommuner as $kommune ) {
