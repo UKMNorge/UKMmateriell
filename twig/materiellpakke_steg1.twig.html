@@ -9,13 +9,13 @@
 				<div class="form-field form-required" style="margin-top: 2px; margin-bottom: 0px;">
 					<label for="fylke_status">Hvor langt har du kommet i materiellbestillingen?</label>
 					<select name="fylke_status" id="fylke_status">
-						<option {{fylke.status == 'ikke_begynt' ? 'checked="checked"' : '' }} value="ikke_begynt">
+						<option {{fylke.status == 'ikke_begynt' ? 'selected="selected"' : '' }} value="ikke_begynt">
 							Vi har ikke begynt med materiellbestillingen
 						</option>
-						<option {{fylke.status == 'innhenter_bestilling' ? 'checked="checked"' : '' }}  value="innhenter_bestilling">
+						<option {{fylke.status == 'innhenter_bestilling' ? 'selected="selected"' : '' }}  value="innhenter_bestilling">
 							Er i prosessen å innhente bestillinger fra lokalkontaktene
 						</option>
-						<option {{fylke.status == 'alt_er_klart' ? 'checked="checked"' : '' }} value="alt_er_klart">
+						<option {{fylke.status == 'alt_er_klart' ? 'selected="selected"' : '' }} value="alt_er_klart">
 							Alt er klart, kjør bestilling!
 						</option>
 					</select>
