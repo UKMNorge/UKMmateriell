@@ -32,6 +32,4 @@ while( $r = mysql_fetch_assoc( $res ) ) {
 	$produkter[] = $produkt;
 }
 
-
-var_dump($pakker);
 $infos = array('produkter' => $produkter, 'pakker' => $pakker);
