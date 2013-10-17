@@ -9,7 +9,6 @@ jQuery(document).ready(function() {
 });
 
 function calc_rest(produkt) {
-	console.log(produkt);
 	behov = parseInt( produkt.find('td.behov').html() );
 	opplag = parseInt ( produkt.find('td.opplag input').val() );
 	rest = opplag - behov;
