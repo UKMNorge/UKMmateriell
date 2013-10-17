@@ -141,6 +141,8 @@ class materiell {
 					$kommune[$key] = $val;
 			}
 			
+			$kommune = (object) $kommune;
+			
 			$kommune->melding = ucwords($kommune->pakke)
 							  . ($kommune->miljo == 'papermill' ? 'MILJØ' : ' ')
 							  . 'pakke';
