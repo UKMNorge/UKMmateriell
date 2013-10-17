@@ -45,7 +45,7 @@ class materiellpakke {
 	
 	public function antall() {
 		if(!$this->antall) {
-			if($this->type == fylke) {
+			if($this->type == 'fylke') {
 				$this->antall = 19;
 			}
 			$sql = new SQL("SELECT `pakke`, COUNT(`kommune_id`) AS `count`
