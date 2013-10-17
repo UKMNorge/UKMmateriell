@@ -1,1 +1,21 @@
-<h2>Beklager, en feil har oppstått</h2>
+<h2>Materiellpakke</h2>
+
+<fieldset class="ukmwidth">
+	<legend>Oppdateringstidspunkt fylker</legend>
+	<p>Listen viser når fylkene sist lagret sin materiellbestillingen, og indikerer om noen ikke har oppdatert listen i år</p>
+	
+	<table>
+		<thead>
+			<tr>
+				<th>Fylke</th>
+				<th>Sist oppdatert</th>
+			</tr>
+		</thead>
+		{% for fylke in fylker %}
+		<tr class="{{fylke.oppdatert ? '' : 'alert alert-error'}}">
+			<td>{{fylke.navn}}</td>
+			<td>{{fylke.tid|date('d.m.Y H:i')}}</td>
+		</tr>
+		{% endfor %}
+	</table>
+</fieldset>
