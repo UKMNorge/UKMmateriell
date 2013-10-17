@@ -4,6 +4,12 @@
 	<legend>Oppdateringstidspunkt fylker</legend>
 	<p>Listen viser når fylkene sist lagret sin materiellbestillingen, og indikerer om noen ikke har oppdatert listen i år</p>
 	
+	{% if ant_ikke_oppdatert == 0 %}
+	<div class="alert alert-success">Alle fylker har oppdatert sin materiellbestilling i år!</div>
+	{% else %}
+	<div class="alert alert-error">{{ant_ikke_oppdatert}} fylker har ikke levert sin bestilling enda!</div>
+	{% endif %}
+	
 	<table class="table table-striped table-hover table-condensed">
 		<thead>
 			<tr>
@@ -13,7 +19,7 @@
 		</thead>
 		{% for fylke in fylker %}
 		<tr class="{{fylke.oppdatert ? '' : 'error'}}">
-			<td>{{fylke.navn}}</td>
+			<td>{{fylke.navn|capitalize}}</td>
 			<td>{{fylke.tid|date('d.m.Y H:i')}}</td>
 		</tr>
 		{% endfor %}

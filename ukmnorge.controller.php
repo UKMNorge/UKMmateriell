@@ -4,9 +4,16 @@ require_once('class.materiell.php');
 $fylker = new SQL("SELECT `id` FROM `smartukm_fylke`
 				   WHERE `id` < 21");
 $fylker = $fylker->run();
+$mangler = 0;
+
 while( $r = mysql_fetch_assoc( $fylker ) ) {
-	$fylkemateriell[] = new materiell( $r['id'] );
+	$fylke = new materiell( $r['id'] );
+	
+	if(!$fylke->oppdatert)
+		$mangler++;
+	
+	$fylkemateriell[] = $fylke;
 }
 
 
-$infos = array('fylker' => $fylkemateriell);
+$infos = array('fylker' => $fylkemateriell, 'ant_ikke_oppdatert' => $mangler);

@@ -20,16 +20,29 @@ if(is_admin()) {
 }
 
 function UKMmateriell_menu() {
+	global $blog_id;
+	
 	$page = add_menu_page('Materiell', 'Materiell', 'editor', 'UKMmateriell', 'UKMmateriell', 'http://ico.ukm.no/kolli-menu.png',125);
-	add_action( 'admin_print_styles-' . $page, 'UKMmateriell_bootstrap' );	
 
 	if(get_option('site_type') == 'fylke')
 		$subpage = add_submenu_page('UKMmateriell', 'Bestill pakke', 'Bestill pakke', 'editor', 'UKMmateriellpakke', 'UKMmateriellpakke');
+		
+	if($blog_id == 1) {
+		$subpage = add_submenu_page('UKMmateriell', 'Pakkeinnhold', 'Pakkeinnhold', 'editor', 'UKMpakkeinnhold', 'UKMpakkeinnhold');
+
+		add_action( 'admin_print_styles-' . $page, 'UKMmateriell_bootstrap' );
+		add_action( 'admin_print_styles-' . $subpage, 'UKMmateriell_bootstrap' );	
+	}
 }
 
 function UKMmateriell_bootstrap(){
 	wp_enqueue_script('bootstrap_js');
 	wp_enqueue_style('bootstrap_css');
+}
+
+function UKMpakkeinnhold() {
+	require_once('pakkeinnhold.controller.php');
+	echo TWIG('pakkeinnhold.twig.html', $infos , dirname(__FILE__));
 }
 
 function UKMmateriell() {

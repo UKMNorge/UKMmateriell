@@ -1,4 +1,10 @@
 <?php
+
+class materiellpakker {
+	
+}
+
+
 class materiell {
 	
 	private function _season() {
