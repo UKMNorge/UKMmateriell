@@ -65,7 +65,7 @@ foreach( $infos['fylker'] as $fylke ) {
 			$postnr  = $kommune->postnummer;
 			$poststed= $kommune->sted;
 		} else {
-			$adresse = $fylke->adresse
+			$adresse = $fylke->adresse;
 			$melding .= ' LEVERES: '.$fylke->navn;
 			$kontakt = $fylke->kontakt;
 			$postnr  = $fylke->postnr;
