@@ -2,7 +2,7 @@
 require_once('class.materiell.php');
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
-	if(isset($_POST['submit_opplag'])) {
+	if( $_POST['save_what'] == 'opplag') {
 		foreach($_POST as $key => $val) {
 			if( strpos($key, 'produkt_') !== false ) {
 				$infos = explode('_', $key);
@@ -16,7 +16,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 		}
 	}
 	
-	if(isset($_POST['submit_pakkeinnhold'])) {
+	if( $_POST['save_what'] == 'pakkeinnhold') {
 		var_dump($_POST);
 	}
 }
