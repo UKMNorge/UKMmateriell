@@ -8,6 +8,8 @@ Version: 1.0
 Author URI: http://www.ukm-norge.no
 */
 
+date_default_timezone_set('Europe/Oslo');
+
 require_once('UKM/inc/twig-admin.inc.php');
 require_once('UKM/monstring.class.php');
 
