@@ -61,6 +61,19 @@
 	<legend>Excel bestilling</legend>
 	<p>Last ned pakkeliste / bestillingsskjema i excel-format</p>
 	
+	{% if ant_ikke_oppdatert != 0 %}
+	<div class="alert alert-success">
+		<strong>Vent litt!</strong>
+		Det er fortsatt {{ant_ikke_oppdatert}} fylker som ikke har levert sin bestilling.<br />
+		Du kan trygt laste ned excel-dokumentet, men du bør ikke sende bestillingen til trykkeriet enda.
+	</div>
+	{% endif %}
+	
+	<div class="alert alert-warning">
+		<strong>OBS: </strong>Husk at alle kommentarer fra fylkeskontaktene må legges manuelt til i bestillingen.<br />
+		Dobbeltsjekk listen ovenfor før du sender bestillingen til trykkeriet
+	</div>
+	
 	<a class="btn btn-primary" href="#"><i class="icon-download-alt icon-white"></i> Last ned</a>
 	(sist oppdatert: {{excel.created|date('d.m.Y H:i')}})
 </fieldset>
