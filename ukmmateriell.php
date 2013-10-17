@@ -28,24 +28,41 @@ function UKMmateriell_menu() {
 		$subpage = add_submenu_page('UKMmateriell', 'Bestill pakke', 'Bestill pakke', 'editor', 'UKMmateriellpakke', 'UKMmateriellpakke');
 		
 	if($blog_id == 1) {
-		$subpage = add_submenu_page('UKMmateriell', 'Opplag', 'Opplag', 'editor', 'UKMopplag', 'UKMopplag');
+		$subpage1 = add_submenu_page('UKMmateriell', 'Pakkeinnhold', 'Pakkeinnhold', 'editor', 'UKMpakkeinnhold', 'UKMpakkeinnhold');
+		$subpage2 = add_submenu_page('UKMmateriell', 'Opplag', 'Opplag', 'editor', 'UKMopplag', 'UKMopplag');
 
 		add_action( 'admin_print_styles-' . $page, 'UKMmateriell_bootstrap' );
-		add_action( 'admin_print_styles-' . $subpage, 'UKMmateriell_bootstrap' );	
+		add_action( 'admin_print_styles-' . $subpage1, 'UKMmateriell_bootstrap' );	
+		add_action( 'admin_print_styles-' . $subpage1, 'UKMmateriell_js_pakkeinnhold' );	
+		add_action( 'admin_print_styles-' . $subpage2, 'UKMmateriell_bootstrap' );	
+		add_action( 'admin_print_styles-' . $subpage2, 'UKMmateriell_js_opplag' );	
+
 	}
 }
 
 function UKMmateriell_bootstrap(){
 	wp_enqueue_script('bootstrap_js');
 	wp_enqueue_style('bootstrap_css');
-	
-	wp_enqueue_script('UKMmateriell_opplag', plugin_dir_url( __FILE__ ) . 'js/opplag.materiellpakke.js');
 }
+
 
 function UKMopplag() {
 	require_once('opplag.controller.php');
 	echo TWIG('opplag.twig.html', $infos , dirname(__FILE__));
 }
+function UKMmateriell_js_opplag() {
+	wp_enqueue_script('UKMmateriell_opplag', plugin_dir_url( __FILE__ ) . 'js/opplag.materiellpakke.js');
+}
+
+
+function UKMpakkeinnhold() {
+	require_once('opplag.controller.php');
+	echo TWIG('pakkeinnhold.twig.html', $infos , dirname(__FILE__));
+}
+function UKMmateriell_js_pakkeinnhold() {
+	wp_enqueue_script('UKMmateriell_pakkeinnhold', plugin_dir_url( __FILE__ ) . 'js/pakkeinnhold.materiellpakke.js');
+}
+
 
 function UKMmateriell() {
 	global $blog_id;

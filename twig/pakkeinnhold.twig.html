@@ -1,0 +1,33 @@
+<h2>Pakkeinnhold</h2>
+
+<form method="POST">
+	<div id="hugesubmit"><div id="lagre">Lagre</div></div>
+	<fieldset class="ukmwidth">
+		<legend>Produktfordeling i pakkene</legend>
+			
+		<table class="table table-striped table-hover">
+			<thead>
+				<tr>
+					<th>Produkt</th>
+					<th>Mini-<br />pakke</th>
+					<th>Medium<br />pakke</th>
+					<th>Stor<br />pakke</th>
+					<th>Fylkes-<br />pakke</th>
+				</tr>
+			</thead>
+			{% for produkt in produkter %}
+			<tr class="produkt" id="produkt_{{produkt.id}}">
+				<td>{{produkt.navn}}</td>
+				<td><input type="number" name="produkt_{{produkt.id}}_pakke_mini" value="{{produkt.pakke_mini}}" /></td>
+				<td><input type="number" name="produkt_{{produkt.id}}_pakke_medium" value="{{produkt.pakke_medium}}" /></td>
+				<td><input type="number" name="produkt_{{produkt.id}}_pakke_stor" value="{{produkt.pakke_stor}}" /></td>
+				<td><input type="number" name="produkt_{{produkt.id}}_pakke_fylke" value="{{produkt.pakke_fylke}}" /></td>
+			</tr>
+			{% endfor %}
+		</table>
+	
+	</fieldset>
+	<div class="form-wrap" style="width: 350px;">
+		<input type="submit" class="button" name="submit" id="submit" value="Lagre opplag" />
+	</div>
+</form>
