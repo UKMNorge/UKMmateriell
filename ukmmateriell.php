@@ -27,6 +27,7 @@ function UKMmateriell_menu() {
 }
 
 function UKMmateriell() {
+	global $blog_id;
 	if($blog_id == 1) {
 		require_once('ukmnorge.controller.php');
 		echo TWIG('ukmnorge.twig.html');
