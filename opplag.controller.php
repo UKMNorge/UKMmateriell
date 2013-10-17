@@ -11,7 +11,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 			
 			$sql = new SQLins('wp_materiell_produkt', array('produkt_id' => $produkt));
 			$sql->add($field, $val);
-			$sql->run();
+			echo $sql->debug().'<br />';
 		}
 	}
 }
