@@ -1,6 +1,22 @@
 <?php
 require_once('class.materiell.php');
 
+if($_SERVER['REQUEST_METHOD'] === 'POST') {
+	foreach($_POST as $key => $val) {
+
+		if( strpos($key, 'produkt_') !== false ) {
+			$infos = explode('_', $key);
+			$produkt = $key[1];
+			$field = $key[2];
+			
+			$sql = new SQLins('wp_materiell_produkt', array('produkt_id' => $produkt));
+			$sql->add($field, $val);
+			echo $sql->debug().'<br />';
+		}
+	}
+}
+
+
 // BEREGN PAKKER 
 $pakke_mini = new materiellpakke('mini');
 $pakke_medium = new materiellpakke('medium');

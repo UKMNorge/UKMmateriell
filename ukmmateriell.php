@@ -28,7 +28,7 @@ function UKMmateriell_menu() {
 		$subpage = add_submenu_page('UKMmateriell', 'Bestill pakke', 'Bestill pakke', 'editor', 'UKMmateriellpakke', 'UKMmateriellpakke');
 		
 	if($blog_id == 1) {
-		$subpage = add_submenu_page('UKMmateriell', 'Pakkeinnhold', 'Pakkeinnhold', 'editor', 'UKMpakkeinnhold', 'UKMpakkeinnhold');
+		$subpage = add_submenu_page('UKMmateriell', 'Opplag', 'Opplag', 'editor', 'UKMopplag', 'UKMopplag');
 
 		add_action( 'admin_print_styles-' . $page, 'UKMmateriell_bootstrap' );
 		add_action( 'admin_print_styles-' . $subpage, 'UKMmateriell_bootstrap' );	
@@ -39,12 +39,12 @@ function UKMmateriell_bootstrap(){
 	wp_enqueue_script('bootstrap_js');
 	wp_enqueue_style('bootstrap_css');
 	
-	wp_enqueue_script('UKMmateriell_pakkeinnhold', plugin_dir_url( __FILE__ ) . 'js/pakkeinnhold.materiellpakke.js');
+	wp_enqueue_script('UKMmateriell_opplag', plugin_dir_url( __FILE__ ) . 'js/opplag.materiellpakke.js');
 }
 
-function UKMpakkeinnhold() {
-	require_once('pakkeinnhold.controller.php');
-	echo TWIG('pakkeinnhold.twig.html', $infos , dirname(__FILE__));
+function UKMopplag() {
+	require_once('opplag.controller.php');
+	echo TWIG('opplag.twig.html', $infos , dirname(__FILE__));
 }
 
 function UKMmateriell() {
