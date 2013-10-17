@@ -94,3 +94,5 @@ $excel->link = exWrite($objPHPExcel,'UKM_Materiellbestilling_'.date('Y-m-d_His')
 $excel->created = time();
 
 $infos['excel'] = $excel;
+
+var_dump($excel);
