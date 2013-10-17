@@ -15,8 +15,6 @@ class produkt {
 			else
 				$this->$newkey = $val;
 		}
-		
-		$this->status = str_replace('_', ' ', $this->status);
 	}
 	
 	public function behov($mini=false,$medium=false,$stor=false,$fylke=false) {
@@ -103,6 +101,7 @@ class materiell {
 
 		$updated = (int) $this->season - 1;
 		$this->oppdatert = (int) date('Y', $this->tid) != $updated;
+		$this->status = str_replace('_', ' ', $this->status);
 	}
 	
 	
