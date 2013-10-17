@@ -21,7 +21,7 @@ class materiell {
 		}
 
 		$updated = (int) $this->season - 1;
-		$this->oppdatert = (int) date('Y', $this->tid) == $updated;
+		$this->oppdatert = (int) date('Y', $this->tid) != $updated;
 	}
 	
 	
