@@ -9,4 +9,4 @@ while( $r = mysql_fetch_assoc( $fylker ) ) {
 }
 
 
-$INFOS = array('fylker' => $fylkemateriell);
+$infos = array('fylker' => $fylkemateriell);
