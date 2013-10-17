@@ -20,7 +20,7 @@ class materiell {
 				$this->$newkey = $val;
 		}
 		
-		if( strpos($this->tid, ($this->season-1).'-') !== 0) {
+		if( strpos($this->tid, ($this->season-1).'-') === false) {
 			$this->oppdatert = false;
 		}
 	}
