@@ -148,7 +148,7 @@ class materiell {
 							  . 'pakke';
 
 			if($kommune->diplomer > 0)
-				$kommune->melding .= ' (+'. $this->diplomer .' diplomer)';
+				$kommune->melding .= ' (+'. $kommune->diplomer .' diplomer)';
 			
 			$this->kommuner[] = $kommune;
 		}
