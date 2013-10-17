@@ -1,7 +1,15 @@
+/* UKM NORGE */
 .ukmwidth {
 	width: 750px;
 }
 
+.produkt > td > input {
+  width: 80px;
+  height: 30px;
+}
+
+
+/* FYLKER OG KOMMUNER */
 .materielldash {
 	min-height: 400px;
 	width: 350px;
