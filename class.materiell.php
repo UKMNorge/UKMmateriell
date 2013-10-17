@@ -152,7 +152,7 @@ class materiell {
 				$kommune->melding .= ' (+'. $kommune->diplomer .' diplomer)';
 			
 			if(empty($kommune->adressat))
-				$kommune->adressat = $kommune->navn
+				$kommune->adressat = $kommune->navn;
 			
 			
 			$this->kommuner[] = $kommune;
