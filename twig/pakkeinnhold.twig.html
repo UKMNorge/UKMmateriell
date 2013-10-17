@@ -4,7 +4,7 @@
 	<legend>Opplag og innhold for de forskjellige pakkene</legend>
 	<p>OBS: Sjekk at alle har oppdatert sine materiellbestillinger før du beregner opplaget</p>
 		
-	<table class="table table-striped table-hover table-condensed">
+	<table class="table table-striped table-hover">
 		<thead>
 			<tr>
 				<th>Produkt</th>
@@ -20,10 +20,10 @@
 		{% for produkt in produkter %}
 		<tr class="produkt" id="produkt_{{produkt.id}}">
 			<th>{{produkt.navn}}</th>
-			<th>{{produkt.mini}}</th>
-			<th>{{produkt.medium}}</th>
-			<th>{{produkt.stor}}</th>
-			<th>{{produkt.fylke}}</th>
+			<th>{{produkt.pakke_mini}}</th>
+			<th>{{produkt.pakke_medium}}</th>
+			<th>{{produkt.pakke_stor}}</th>
+			<th>{{produkt.pakke_fylke}}</th>
 			<th>{{produkt.opplag}}</th>
 			<th><input type="number" class="" name="produkt_{{produkt.id}}_behov" value="{{produkt.behov}}" /></th>
 			<th><input type="number" name="produkt_{{produkt.id}}_opplag" value="{{produkt.opplag}}" /></th>
