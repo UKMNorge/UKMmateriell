@@ -5,9 +5,16 @@
 	<p>Listen viser når fylkene sist lagret sin materiellbestillingen, og indikerer om noen ikke har oppdatert listen i år</p>
 	
 	{% if ant_ikke_oppdatert == 0 %}
-	<div class="alert alert-success">Alle fylker har oppdatert sin materiellbestilling i år!</div>
+	<div class="alert alert-success">
+		<strong>Hurra!</strong>
+		Alle fylker har oppdatert sin materiellbestilling i år!
+	</div>
 	{% else %}
-	<div class="alert alert-error">{{ant_ikke_oppdatert}} fylker har ikke levert sin bestilling enda!</div>
+	<div class="alert alert-error">
+		<strong>
+			OBS: {{ant_ikke_oppdatert}} fylker har ikke levert sin bestilling enda!
+		</strong>
+	</div>
 	{% endif %}
 	
 	<table class="table table-striped table-hover table-condensed">
