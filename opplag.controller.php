@@ -44,6 +44,15 @@ foreach($pakker as $index => $pakke)
 	$pakker[$index]->antall();
 
 
+// ALLE EKSTRA DIPLOMER
+$fylkediplom = new SQL("SELECT SUM(`fylke_ekstradiplom`) AS `antall`
+						FROM `wp_materiell_fylke`");
+$fylkediplom = (int) $fylkediplom->run('field','antall');
+
+$lokaldiplom = new SQL("SELECT SUM(`diplomer`) AS `antall`
+						FROM `wp_materiell`");
+$lokaldiplom = (int) $lokaldiplom->run('field','antall');
+
 
 // HENT ALLE PRODUKTER
 $sql = new SQL("SELECT *
@@ -60,4 +69,7 @@ while( $r = mysql_fetch_assoc( $res ) ) {
 	$produkter[] = $produkt;
 }
 
-$infos = array('produkter' => $produkter, 'pakker' => $pakker);
+$infos = array('produkter' => $produkter,
+			   'pakker' => $pakker,
+			   'ekstra_diplomer' => array( 'lokal' => $lokaldiplom, 'fylke' => $fylkediplom )
+			  );

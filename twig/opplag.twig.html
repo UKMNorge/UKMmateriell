@@ -25,8 +25,9 @@
 
 
 <fieldset class="ukmwidth">
-	<legend>Antall EKSTRA diplomer</legend>
-		
+	<legend>Antall ekstra diplomer</legend>
+	<p>Dette er diplomer som er bestilt utover de som følger pakken. <br />
+	Disse <b>er allerede medregnet</b> i behov-kolonnen for diplomer</p>
 	<table class="table table-striped">
 		<thead>
 			<tr>
@@ -37,8 +38,8 @@
 		</thead>
 		<tr class="pakker">
 			<th>Antall</th>
-			<td id="ekstradiplom_lokal">0</td>
-			<td id="ekstradiplom_fylke">0</td>
+			<td id="ekstradiplom_lokal">{{ekstra_diplomer.lokal}}</td>
+			<td id="ekstradiplom_fylke">{{ekstra_diplomer.fylke}}</td>
 		</tr>
 	</table>
 
