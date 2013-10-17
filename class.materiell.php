@@ -135,10 +135,11 @@ class materiell {
 		while($r = mysql_fetch_assoc( $res ) ) {
 			$kommune = array();
 			foreach($r as $key => $val) {
+				$newkey = str_replace('kommune_','', $key);
 				if(is_string($val))
-					$kommune[$key] = utf8_encode($val);
+					$kommune[$newkey] = utf8_encode($val);
 				else
-					$kommune[$key] = $val;
+					$kommune[$newkey] = $val;
 			}
 			
 			$kommune = (object) $kommune;
@@ -149,6 +150,10 @@ class materiell {
 
 			if($kommune->diplomer > 0)
 				$kommune->melding .= ' (+'. $kommune->diplomer .' diplomer)';
+			
+			if(empty($kommune->adressat))
+				$kommune->adressat = $kommune->navn
+			
 			
 			$this->kommuner[] = $kommune;
 		}
