@@ -21,4 +21,4 @@ while( $r = mysql_fetch_assoc( $res ) ) {
 }
 
 
-$info = array('produkter' => $produkter);
+$infos = array('produkter' => $produkter);
