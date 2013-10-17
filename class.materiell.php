@@ -98,9 +98,17 @@ class materiell {
 			else
 				$this->$newkey = $val;
 		}
+		
+		// Oppdatert means ready (doh?)
+		$this->oppdatert = $this->status == 'alt_er_klart';
 
-		$updated = (int) $this->season - 1;
-		$this->oppdatert = (int) date('Y', $this->tid) != $updated;
+		// Introduced in mid-order process 2013, no reason to bug them once again to tick the box
+		if(date('Y') == '2013' && !$this->oppdatert && $this->status == 'ikke_begynt') {
+				$updated = (int) $this->season - 1;
+				$this->oppdatert = (int) date('Y', $this->tid) != $updated;
+			}
+		}
+		
 		$this->status = str_replace('_', ' ', $this->status);
 	}
 	
