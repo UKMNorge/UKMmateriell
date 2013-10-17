@@ -42,7 +42,7 @@ foreach( $infos['fylker'] as $fylke ) {
 	$row++;
 	
 	exCell('A'.$row, $row-1);
-	exCell('B'.$row, ucwords($fylke->navn . ' fylkeskommune'));
+	exCell('B'.$row, ucwords($fylke->adressat));
 	exCell('C'.$row, ucwords($fylke->adresse));
 	exCell('D'.$row, $fylke->postnr);
 	exCell('E'.$row, ucwords($fylke->sted));
@@ -73,7 +73,7 @@ foreach( $infos['fylker'] as $fylke ) {
 			$poststed= $fylke->sted;
 		}		
 		exCell('A'.$row, $row-1);
-		exCell('B'.$row, ucwords($kommune->navn));
+		exCell('B'.$row, ucwords($kommune->adressat));
 		exCell('C'.$row, $adresse);
 		exCell('D'.$row, $postnr);
 		exCell('E'.$row, ucwords($poststed));
