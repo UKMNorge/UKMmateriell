@@ -62,8 +62,8 @@
 	<p>Last ned pakkeliste / bestillingsskjema i excel-format</p>
 	
 	{% if ant_ikke_oppdatert != 0 %}
-	<div class="alert alert-success">
-		<strong>Vent litt!</strong>
+	<div class="alert alert-error">
+		<strong>VENT LITT!</strong>
 		Det er fortsatt {{ant_ikke_oppdatert}} fylker som ikke har levert sin bestilling.<br />
 		Du kan trygt laste ned excel-dokumentet, men du bør ikke sende bestillingen til trykkeriet enda.
 	</div>
