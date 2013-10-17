@@ -14,7 +14,9 @@ class produkt {
 				$this->$newkey = utf8_encode($val);
 			else
 				$this->$newkey = $val;
-		}		
+		}
+		
+		$this->status = str_replace('_', ' ', $this->status);
 	}
 	
 	public function behov($mini=false,$medium=false,$stor=false,$fylke=false) {

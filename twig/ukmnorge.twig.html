@@ -21,6 +21,7 @@
 		<thead>
 			<tr>
 				<th width="150">Fylke</th>
+				<th>Status</th>
 				<th>Sist oppdatert</th>
 				<th>Forsendingsmetode</th>
 			</tr>
@@ -28,6 +29,7 @@
 		{% for fylke in fylker %}
 		<tr class="{{fylke.oppdatert ? '' : 'error'}}">
 			<td>{{fylke.navn|capitalize}}</td>
+			<td>{{fylke.status|capitalize}}</td>
 			<td>{{fylke.tid|date('d.m.Y H:i')}}</td>
 			<td>{% if fylke.hvordansendes == 'direktealle' %}
 				Alle pakkene sendes direkte til kommunene
