@@ -104,7 +104,7 @@ class materiell {
 
 		// Introduced in mid-order process 2013, no reason to bug them once again to tick the box
 		if(date('Y') == '2013' && $this->status == 'ikke_begynt') {
-			$this->oppdatert = $this->tid < mktime( 0, 0, 0, 8, 1, date("Y"));
+			$this->oppdatert = $this->tid > mktime( 0, 0, 0, 8, 1, date("Y"));
 			$this->status = 'Ukjent';
 		}
 		$this->status = str_replace('_', ' ', $this->status);
