@@ -8,6 +8,11 @@ $fylker = $fylker->run();
 $mangler = 0;
 $fylkedata = array();
 
+$total['pakker']['mini'] = 0;
+$total['pakker']['medium'] = 0;
+$total['pakker']['stor'] = 0;
+$total['pakker']['total'] = 0;
+
 while( $r = mysql_fetch_assoc( $fylker ) ) {
 	$fylke = new materiell( $r['id'] );
 	
@@ -39,7 +44,13 @@ while( $r = mysql_fetch_assoc( $fylker ) ) {
 									+ (int) $fylkedata['pakker']['medium']
 									+ (int) $fylkedata['pakker']['stor']
 									+ 1;
-	
+
+	$total['pakker']['mini']		+= (int) $fylkedata['pakker']['mini'];
+	$total['pakker']['medium']		+= (int) $fylkedata['pakker']['medium'];
+	$total['pakker']['stor']		+= (int) $fylkedata['pakker']['stor'];
+	$total['pakker']['total']		+= (int) $fylkedata['pakker']['total'];
+	$total['ekstra']['lokaldiplom'] += (int) $fylkedata['ekstra']['lokaldiplom'];
+	$total['ekstra']['fylkediplom'] += (int) $fylkedata['ekstra']['fylkediplom'];
 	$fylkemateriell[] = $fylkedata;
 }
 
