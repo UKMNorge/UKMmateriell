@@ -68,6 +68,7 @@ class materiellpakke {
 								FROM `wp_materiell`
 								WHERE `skalha` = 'skalha'
 								AND `pakke` = '#pakke'
+								AND `aktiv` = 'Ja'
 								",
 								array('pakke' => $this->type));
 				$this->antall = $sql->run('field','count');
