@@ -14,6 +14,10 @@ while( $r = mysql_fetch_assoc( $fylker ) ) {
 	$fylkedata = array();
 	$fylkedata['ekstra']['fylkediplom'] += (int) $fylke->ekstradiplom;
 	$fylkedata['navn'] = $fylke->navn;
+	$fylkedata['pakker'] = array('mini' => 0,
+								 'medium' => 0,
+								 'stor' => 0,
+								 'total' => 0);
 	
 	$fylke->load_kommuner();
 	foreach( $fylke->kommuner as $kommune ) {
@@ -25,12 +29,16 @@ while( $r = mysql_fetch_assoc( $fylker ) ) {
 		$fylkedata['pakker'][$pakke] += 1;
 		$fylkedata['ekstra']['lokaldiplom'] += (int) $kommune->diplomer;
 
-		if( $kommune->hvordansendes == 'direktealle' )
+		if( $kommune->hvordansendes == 'allesendes' )
 			$fylkedata['levering'] = $kommune->forsendelse;
-	}	
+	}
+	
+	$fylkedata['pakker']['total'] =   (int) $fylkedata['pakker']['mini']
+									+ (int) $fylkedata['pakker']['medium']
+									+ (int) $fylkedata['pakker']['stor']
+									+ 1;
+	
 	$fylkemateriell[] = $fylkedata;
 }
-
-var_dump( $fylkemateriell );
 
 $infos = array('fylker' => $fylkemateriell);
