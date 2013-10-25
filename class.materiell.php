@@ -99,8 +99,6 @@ class materiell {
 				$this->$newkey = $val;
 		}
 		
-		$this->navn = ucwords($this->navn);
-		
 		// Oppdatert means ready (doh?)
 		$this->oppdatert = $this->status == 'alt_er_klart';
 
