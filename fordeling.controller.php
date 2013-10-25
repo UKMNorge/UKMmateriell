@@ -19,7 +19,7 @@ while( $r = mysql_fetch_assoc( $fylker ) ) {
 								 'stor' => 0,
 								 'total' => 0);
 	if( $fylke->hvordansendes == 'allesendes' )
-		$fylkedata['levering'] = $kommune->forsendelse;
+		$fylkedata['levering'] = $fylke->forsendelse;
 	
 	$fylke->load_kommuner();
 	foreach( $fylke->kommuner as $kommune ) {
