@@ -1,0 +1,33 @@
+<h2>Fylkesvis fordeling</h2>
+
+<fieldset class="ukmwidth">
+		
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Fylke</th>
+				<th>Mini-<br />pakke</th>
+				<th>Medium<br />pakke</th>
+				<th>Stor<br />pakke</th>
+				<th>Fylkes-<br />pakke</th>
+				<th>Totalt<br />ant pakker</th>
+				<th>Ekstra<br />fylke-diplomer</th>
+				<th>Ekstra<br />lokal-diplomer</th>
+				<th>Leveringsmåte</th>
+			</tr>
+		</thead>
+		{% for fylke in fylker %}
+		<tr class="pakker">
+			<td>{{fylke.navn}}</td>
+			<td>{{fylke.pakker.mini}}</td>
+			<td>{{fylke.pakker.medium}}</td>
+			<td>{{fylke.pakker.stor}}</td>
+			<td>1</td>
+			<td>{{fylke.pakker.totalt}}</td>
+			<td>{{fylke.ekstra.fylkediplom}}</td>
+			<td>{{fylke.ekstra.lokaldiplom}}</td>
+			<td>{{fylke.levering}}</td>
+		</tr>
+		{% endfor %}
+	</table>
+</fieldset>

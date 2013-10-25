@@ -33,6 +33,7 @@ function UKMmateriell_menu() {
 	if($blog_id == 1) {
 		$subpage1 = add_submenu_page('UKMmateriell', 'Pakkeinnhold', 'Pakkeinnhold', 'editor', 'UKMpakkeinnhold', 'UKMpakkeinnhold');
 		$subpage2 = add_submenu_page('UKMmateriell', 'Opplag', 'Opplag', 'editor', 'UKMopplag', 'UKMopplag');
+		$subpage3 = add_submenu_page('UKMmateriell', 'Fordeling', 'Fordeling', 'editor', 'UKMfordeling', 'UKMfordeling');
 
 		add_action( 'admin_print_styles-' . $page, 'UKMmateriell_bootstrap' );
 		add_action( 'admin_print_styles-' . $subpage1, 'UKMmateriell_bootstrap' );	
@@ -40,6 +41,7 @@ function UKMmateriell_menu() {
 		add_action( 'admin_print_styles-' . $subpage2, 'UKMmateriell_bootstrap' );	
 		add_action( 'admin_print_styles-' . $subpage2, 'UKMmateriell_js_opplag' );	
 
+		add_action( 'admin_print_styles-' . $subpage3, 'UKMmateriell_bootstrap' );	
 	}
 }
 
@@ -53,6 +55,12 @@ function UKMopplag() {
 	require_once('opplag.controller.php');
 	echo TWIG('opplag.twig.html', $infos , dirname(__FILE__));
 }
+
+function UKMfordeling() {
+	require_once('fordeling.controller.php');
+	echo TWIG('fordeling.twig.html', $infos , dirname(__FILE__));
+}
+
 function UKMmateriell_js_opplag() {
 	wp_enqueue_script('UKMmateriell_opplag', plugin_dir_url( __FILE__ ) . 'js/opplag.materiellpakke.js');
 }
