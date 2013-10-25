@@ -72,6 +72,7 @@ class materiellpakke {
 								AND `fylke_id' < '21'
 								",
 								array('pakke' => $this->type));
+				var_dump($sql);
 				$this->antall = $sql->run('field','count');
 			}
 		}
