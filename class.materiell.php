@@ -69,10 +69,9 @@ class materiellpakke {
 								WHERE `skalha` = 'skalha'
 								AND `pakke` = '#pakke'
 								AND `aktiv` = 'Ja'
-								AND `fylke_id' < '21'
+								AND `fylke_id` < '21'
 								",
 								array('pakke' => $this->type));
-				var_dump($sql);
 				$this->antall = $sql->run('field','count');
 			}
 		}
