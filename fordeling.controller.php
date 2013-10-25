@@ -18,6 +18,8 @@ while( $r = mysql_fetch_assoc( $fylker ) ) {
 								 'medium' => 0,
 								 'stor' => 0,
 								 'total' => 0);
+	if( $fylke->hvordansendes == 'allesendes' )
+		$fylkedata['levering'] = $kommune->forsendelse;
 	
 	$fylke->load_kommuner();
 	foreach( $fylke->kommuner as $kommune ) {
@@ -29,8 +31,6 @@ while( $r = mysql_fetch_assoc( $fylker ) ) {
 		$fylkedata['pakker'][$pakke] += 1;
 		$fylkedata['ekstra']['lokaldiplom'] += (int) $kommune->diplomer;
 
-		if( $kommune->hvordansendes == 'allesendes' )
-			$fylkedata['levering'] = $kommune->forsendelse;
 	}
 	
 	$fylkedata['pakker']['total'] =   (int) $fylkedata['pakker']['mini']
