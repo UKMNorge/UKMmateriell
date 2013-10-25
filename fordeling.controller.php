@@ -54,4 +54,4 @@ while( $r = mysql_fetch_assoc( $fylker ) ) {
 	$fylkemateriell[] = $fylkedata;
 }
 
-$infos = array('fylker' => $fylkemateriell);
+$infos = array('fylker' => $fylkemateriell, 'total' => $total);
