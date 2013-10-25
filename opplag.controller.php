@@ -46,11 +46,13 @@ foreach($pakker as $index => $pakke)
 
 // ALLE EKSTRA DIPLOMER
 $fylkediplom = new SQL("SELECT SUM(`fylke_ekstradiplom`) AS `antall`
-						FROM `wp_materiell_fylke`");
+						FROM `wp_materiell_fylke`
+						WHERE `skalha` = 'skalha'");
 $fylkediplom = (int) $fylkediplom->run('field','antall');
 
 $lokaldiplom = new SQL("SELECT SUM(`diplomer`) AS `antall`
-						FROM `wp_materiell`");
+						FROM `wp_materiell`
+						WHERE `skalha` = 'skalha'");
 $lokaldiplom = (int) $lokaldiplom->run('field','antall');
 
 

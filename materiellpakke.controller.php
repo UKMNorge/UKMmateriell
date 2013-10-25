@@ -40,6 +40,7 @@ if($_SERVER['REQUEST_METHOD']==='POST') {
 				$sql = new SQLins('wp_materiell', array('kommune_id'=>$_POST['kommune_id'][$i])); 
 				
 			$sql->add('kommune_id', $kommune);
+			$sql->add('fylke_id', get_option('fylke'));
 			$sql->add('kontaktperson', $_POST['kommune_kontaktperson'][$i]);
 			$sql->add('adresse', $_POST['kommune_adresse'][$i]);
 			$sql->add('adressat', $_POST['kommune_adressat'][$i]);
