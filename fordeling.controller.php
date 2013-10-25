@@ -23,6 +23,8 @@ while( $r = mysql_fetch_assoc( $fylker ) ) {
 	
 	$fylke->load_kommuner();
 	foreach( $fylke->kommuner as $kommune ) {
+		if( $kommune->skalha != 'skalha')
+			continue;
 		$pakke = strtolower( str_replace( array('-',' '),
 										  '',
 										  $kommune->pakke
