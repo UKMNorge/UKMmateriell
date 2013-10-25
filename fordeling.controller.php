@@ -28,7 +28,7 @@ while( $r = mysql_fetch_assoc( $fylker ) ) {
 		if( $kommune->hvordansendes == 'direktealle' )
 			$fylkedata['levering'] = $kommune->forsendelse;
 	}	
-	$fylkemateriell[] = $fylke;
+	$fylkemateriell[] = $fylkedata;
 }
 
 var_dump( $fylkemateriell );
