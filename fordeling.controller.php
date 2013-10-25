@@ -31,6 +31,6 @@ while( $r = mysql_fetch_assoc( $fylker ) ) {
 	$fylkemateriell[] = $fylke;
 }
 
-$infos = array('fylker' => $fylkemateriell);
+var_dump( $fylkemateriell );
 
-require_once('bestilling_excel.inc.php');
+$infos = array('fylker' => $fylkemateriell);
