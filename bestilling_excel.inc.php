@@ -57,6 +57,8 @@ foreach( $infos['fylker'] as $fylke ) {
 
 	$fylke->load_kommuner();
 	foreach( $fylke->kommuner as $kommune ) {
+		if($kommune->skalha != 'skalha')
+			continue;
 		$row++;
 		
 		$melding = $kommune->melding;		

@@ -68,7 +68,7 @@ class materiellpakke {
 								FROM `wp_materiell`
 								WHERE `skalha` = 'skalha'
 								AND `pakke` = '#pakke'
-								GROUP BY `pakke`",
+								",
 								array('pakke' => $this->type));
 				$this->antall = $sql->run('field','count');
 			}
