@@ -7,11 +7,10 @@ $bruker = $wpdb->get_row("SELECT `b_id`,`lock_email`, `b_email` FROM `ukm_bruker
 						  WHERE `wp_bid` = '".$cuid."'");	
 
 if($bruker->lock_email == 'true' && strpos($bruker->b_email, '@urg.ukm.no') !== false) {
-	echo 'URG-bruker';
 	$bruker = $wpdb->get_row("SELECT `b_id` FROM `ukm_brukere`
-							  WHERE `b_email` = '%s'
-							  AND `lock_email` = 'true'",
-							  array(str_replace('@urg.ukm','@ukm', $bruker->b_email)));
+							  WHERE `b_email` = '". str_replace('@urg.ukm','@ukm', $bruker->b_email) ."'
+							  AND `lock_email` = 'true'"
+							 );
 }
 
 $infos = array('user_id' => $bruker->b_id,
