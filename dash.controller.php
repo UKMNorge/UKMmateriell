@@ -12,7 +12,7 @@ if($bruker->lock_email == 'true' && strpos($bruker->b_email, '@urg.ukm.no') !== 
 			WHERE `b_email` = '". str_replace('@urg.ukm','@ukm', $bruker->b_email) ."'
 			AND `lock_email` = 'true'";
 			echo $sql;
-	$bruker = $wpdb->get_row($sql);							 );
+	$bruker = $wpdb->get_row($sql);
 }
 
 $infos = array('user_id' => $bruker->b_id,
