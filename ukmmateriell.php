@@ -34,6 +34,7 @@ function UKMmateriell_menu() {
 		$subpage1 = add_submenu_page('UKMmateriell', 'Pakkeinnhold', 'Pakkeinnhold', 'editor', 'UKMpakkeinnhold', 'UKMpakkeinnhold');
 		$subpage2 = add_submenu_page('UKMmateriell', 'Opplag', 'Opplag', 'editor', 'UKMopplag', 'UKMopplag');
 		$subpage3 = add_submenu_page('UKMmateriell', 'Fordeling', 'Fordeling', 'editor', 'UKMfordeling', 'UKMfordeling');
+		$subpage4 = add_submenu_page('UKMmateriell', 'Instrato', 'Instrato', 'editor', 'UKMNinstrato', 'UKMNinstrato');
 
 		add_action( 'admin_print_styles-' . $page, 'UKMmateriell_bootstrap' );
 		add_action( 'admin_print_styles-' . $subpage1, 'UKMmateriell_bootstrap' );	
@@ -50,6 +51,10 @@ function UKMmateriell_bootstrap(){
 	wp_enqueue_style('bootstrap_css');
 }
 
+function UKMNinstrato() {
+	require_once('dash.controller.php');
+	echo TWIG('dash.twig.html', $infos , dirname(__FILE__));
+}
 
 function UKMopplag() {
 	require_once('opplag.controller.php');
