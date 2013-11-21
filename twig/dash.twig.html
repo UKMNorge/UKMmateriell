@@ -13,6 +13,11 @@
 	<h3>Plakater, facebook-grafikk, videoer, diplomer, program, logoer, ikoner osv</h3>
 	<p>Vi har samlet alt UKM-materiellet på ett sted!</p>
 	<p><a href="http://instrato.no/start/ukm-autologin.php?uid={{user_id}}&key={{user_key}}" target="_blank">Logg inn til instrato her</a></p>
+	{% if eksternbruker is defined %}
+	<h3>Åpen bruker</h3>
+	<p class="lead">Har du eksterne personer som trenger tilgang til instrato? La de bruke denne brukeren:</p>
+	<p>Brukernavn: {{eksternbruker.navn}}<br />Passord: {{eksternbruker.pass}}</p>
+	{% endif %}
 	
 
 	<h2>Kjøp UKM-artikler (webshop)</h2>
