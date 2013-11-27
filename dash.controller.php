@@ -44,3 +44,9 @@ if($bruker->lock_email == 'true' && strpos($bruker->b_email, '@urg.ukm.no') !== 
 	$infos['eksternbruker']['navn'] = $fylkenavn.'-ekstern';
 	$infos['eksternbruker']['pass'] = $eksternbrukere[strtolower($fylkenavn).'-ekstern'];
 }
+
+if( get_option( 'site_type') == 'fylke' ) {
+	var_dump($infos['eksternbruker']);
+	var_dump($fylkenavn);
+	var_dump($bruker->lock_email);
+}
