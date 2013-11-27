@@ -15,8 +15,12 @@ $infos = array('user_id' => $bruker->b_id,
 		  );
 
 
+if($bruker->lock_email == 'true' && strpos($bruker->b_email, '@urg.ukm.no') !== false) {
+	$bruker->lock_email = str_replace('@urg.ukm.no','@ukm.no', $bruker->b_email);
+}
+
 if($bruker->lock_email == 'true' && strpos($bruker->b_email, '@ukm.no') !== false) {
-	$fylkenavn = str_replace('@urg.ukm','@ukm', $bruker->b_email);
+	$fylkenavn = str_replace('@ukm.no','', $bruker->b_email);
 	$bruker = $wpdb->get_row("SELECT `b_id` 
 			FROM `ukm_brukere`
 			WHERE `b_email` = '". $fylkenavn ."'
