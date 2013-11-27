@@ -15,7 +15,7 @@ $infos = array('user_id' => $bruker->b_id,
 		  );
 
 
-if($bruker->lock_email == 'true' && strpos($bruker->b_email, '@urg.ukm.no') !== false) {
+if($bruker->lock_email == 'true' && strpos($bruker->b_email, '@ukm.no') !== false) {
 	$fylkenavn = str_replace('@urg.ukm','@ukm', $bruker->b_email);
 	$bruker = $wpdb->get_row("SELECT `b_id` 
 			FROM `ukm_brukere`
