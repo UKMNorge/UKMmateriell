@@ -94,7 +94,7 @@ if($_SERVER['REQUEST_METHOD']==='POST') {
 
 $infos = array('site_type' => get_option('site_type'),
 		   'season' => get_option('season'),
-		   'deadline' => '21.10.2013',
+		   'deadline' => '15.10.2014',
 		   'fylke' => $fylkedata,
 		   'kommuner' => $kommuner,
 		   'steg' => $steg,
