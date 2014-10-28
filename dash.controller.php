@@ -11,7 +11,7 @@ $infos = array('user_id' => $bruker->b_id,
 		   'user_key'	=> md5($bruker->b_id . UKM_INSTRATO_PEPPER),
 		   'site_type' => get_option('site_type'),
 		   'season' => get_option('season'),
-		   'deadline' => '21.10.2013'
+		   'deadline' => '15.10.2014'
 		  );
 
 
