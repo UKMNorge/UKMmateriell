@@ -18,4 +18,6 @@ while( $r = mysql_fetch_assoc( $fylker ) ) {
 
 $infos = array('fylker' => $fylkemateriell, 'ant_ikke_oppdatert' => $mangler);
 
-require_once('bestilling_excel.inc.php');
+if(UKM_HOSTNAME != 'ukm.dev') {
+	require_once('bestilling_excel.inc.php');
+}
