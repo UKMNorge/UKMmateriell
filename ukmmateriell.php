@@ -17,41 +17,34 @@ require_once('UKM/monstring.class.php');
 if(is_admin()) {
 	global $blog_id;
 	add_action('UKM_admin_menu', 'UKMmateriell_menu',100);
-	
-//	add_action( 'admin_enqueue_scripts', 'UKMmateriell_scriptsandstyles' );
 }
+	add_action('network_admin_menu', 'UKMmateriell_network_menu');
 
+
+function UKMmateriell_network_menu() {
+	$page = add_menu_page('Materiell', 'Materiell', 'superadmin', 'UKMmateriell','UKMmateriell', 'http://ico.ukm.no/kolli-menu.png',2100);
+
+	$subpage1 = add_submenu_page( 'UKMmateriell', 'Pakkeinnhold', 'Pakkeinnhold', 'superadministrator', 'UKMpakkeinnhold', 'UKMpakkeinnhold' );
+	$subpage2 = add_submenu_page( 'UKMmateriell', 'Opplag', 'Opplag', 'superadministrator', 'UKMopplag', 'UKMopplag' );
+	$subpage3 = add_submenu_page( 'UKMmateriell', 'Fordeling', 'Fordeling', 'superadministrator', 'UKMfordeling', 'UKMfordeling' );
+	$subpage4 = add_submenu_page( 'UKMmateriell', 'Instrato', 'Instrato', 'superadministrator', 'UKMNinstrato', 'UKMNinstrato' );
+
+
+
+	add_action( 'admin_print_styles-' . $page, 'UKMmateriell_bootstrap' );
+	add_action( 'admin_print_styles-' . $subpage1, 'UKMmateriell_bootstrap' );
+	add_action( 'admin_print_styles-' . $subpage2, 'UKMmateriell_bootstrap' );
+	add_action( 'admin_print_styles-' . $subpage3, 'UKMmateriell_bootstrap' );
+	add_action( 'admin_print_styles-' . $subpage4, 'UKMmateriell_bootstrap' );
+
+	add_action( 'admin_print_styles-' . $subpage2, 'UKMmateriell_js_opplag' );
+}
 function UKMmateriell_menu() {
 	global $blog_id;
 	
 	UKM_add_menu_page('resources','Materiell', 'Materiell', 'editor', 'UKMmateriell', 'UKMmateriell', 'http://ico.ukm.no/kolli-menu.png',15);
-
-
 	if(get_option('site_type') == 'fylke')
 		UKM_add_submenu_page('UKMmateriell', 'Bestill pakke', 'Bestill pakke', 'editor', 'UKMmateriellpakke', 'UKMmateriellpakke');
-		
-
-		
-	if($blog_id == 1) {
-		UKM_add_submenu_page('UKMmateriell', 'Pakkeinnhold', 'Pakkeinnhold', 'editor', 'UKMpakkeinnhold', 'UKMpakkeinnhold');
-		UKM_add_submenu_page('UKMmateriell', 'Opplag', 'Opplag', 'editor', 'UKMopplag', 'UKMopplag');
-		UKM_add_submenu_page('UKMmateriell', 'Fordeling', 'Fordeling', 'editor', 'UKMfordeling', 'UKMfordeling');
-		UKM_add_submenu_page('UKMmateriell', 'Instrato', 'Instrato', 'editor', 'UKMNinstrato', 'UKMNinstrato');
-
-		UKM_add_scripts_and_styles('UKMpakkeinnhold', 'UKMmateriell_bootstrap');
-		UKM_add_scripts_and_styles('UKMopplag', 'UKMmateriell_bootstrap');
-		UKM_add_scripts_and_styles('UKMopplag', 'UKMmateriell_js_opplag');
-		UKM_add_scripts_and_styles('UKMfordeling', 'UKMmateriell_bootstrap');
-/*
-//		add_action( 'admin_print_styles-' . $page, 'UKMmateriell_bootstrap' );
-		add_action( 'admin_print_styles-' . $subpage1, 'UKMmateriell_bootstrap' );	
-
-		add_action( 'admin_print_styles-' . $subpage2, 'UKMmateriell_bootstrap' );	
-		add_action( 'admin_print_styles-' . $subpage2, 'UKMmateriell_js_opplag' );	
-
-		add_action( 'admin_print_styles-' . $subpage3, 'UKMmateriell_bootstrap' );	
-*/
-	}
 }
 
 function UKMmateriell_bootstrap(){
