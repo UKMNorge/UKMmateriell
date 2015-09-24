@@ -5,11 +5,11 @@
 		<p>
 			<strong>Det er fylkeskontaktene som har ansvar for å bestille materiellpakker til alle sine lokalmønstringer.</strong>
 		</p>
-		<p>Frist for bestilling av materiellpakker i {{season}} er: {{deadline|dato('D d.m.Y')}}</p>
+		<p>Frist for bestilling av materiellpakker i {{season}} er: {% if deadline == false %}ikke bestemt{% else %} {{deadline|dato('D d.m.Y')}} {% endif %}</p>
 		
 		{% if is_open %}
 			<p><a href="?page=UKMmateriellpakke">Gå til materiellpakke-bestilling</a></p>
-		{% else %}
+		{% elseif deadline != false %}
 			<div class="alert alert-danger">
 				<p>
 					<strong>Skjemaet er lukket</strong>
