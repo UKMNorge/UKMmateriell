@@ -6,12 +6,27 @@ $cuid = $current_user->ID;
 $bruker = $wpdb->get_row("SELECT `b_id`,`lock_email`, `b_email` FROM `ukm_brukere`
 						  WHERE `wp_bid` = '".$cuid."'");	
 
+$open = get_site_option('UKMmateriell_form_start');
+$close = get_site_option('UKMmateriell_form_stop');
+if( is_string( $open ) ) {
+	$start = strtotime( $open );
+	$open = $start < time();
+}
+if( is_string( $close ) ) {
+	$stop = strtotime( $close );
+	$close = $stop < time();
+}
+
+$is_open = ($open == true && $close == false);
 
 $infos = array('user_id' => $bruker->b_id,
 		   'user_key'	=> md5($bruker->b_id . UKM_INSTRATO_PEPPER),
 		   'site_type' => get_option('site_type'),
 		   'season' => get_option('season'),
-		   'deadline' => '15.10.2014'
+		   'deadline' => get_site_option('UKMmateriell_form_stop'),
+		   'is_open' => $is_open,
+		   'start' => $start,
+		   'stop' => $stop,
 		  );
 
 

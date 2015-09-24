@@ -18,7 +18,12 @@ if(is_admin()) {
 	global $blog_id;
 	add_action('UKM_admin_menu', 'UKMmateriell_menu',100);
 }
-	add_action('network_admin_menu', 'UKMmateriell_network_menu');
+add_action('network_admin_menu', 'UKMmateriell_network_menu');
+add_filter('UKMWPNETWDASH_messages', 'UKMmateriell_network_dash_messages',3);
+
+if( get_option('site_type') == 'fylke' ) {
+	add_filter('UKMWPDASH_messages', 'UKMmateriell_fylke_dash_messages');
+}
 
 
 function UKMmateriell_network_menu() {
@@ -28,29 +33,37 @@ function UKMmateriell_network_menu() {
 	$subpage2 = add_submenu_page( 'UKMmateriell', 'Opplag', 'Opplag', 'superadministrator', 'UKMopplag', 'UKMopplag' );
 	$subpage3 = add_submenu_page( 'UKMmateriell', 'Fordeling', 'Fordeling', 'superadministrator', 'UKMfordeling', 'UKMfordeling' );
 	$subpage4 = add_submenu_page( 'UKMmateriell', 'Instrato', 'Instrato', 'superadministrator', 'UKMNinstrato', 'UKMNinstrato' );
-
-
+	$subpage5 = add_submenu_page( 'UKMmateriell', 'Innstillinger', 'Innstillinger', 'superadministrator', 'UKMMateriellInnstillinger', 'UKMMateriellInnstillinger' );
 
 	add_action( 'admin_print_styles-' . $page, 'UKMmateriell_bootstrap' );
 	add_action( 'admin_print_styles-' . $subpage1, 'UKMmateriell_bootstrap' );
 	add_action( 'admin_print_styles-' . $subpage2, 'UKMmateriell_bootstrap' );
 	add_action( 'admin_print_styles-' . $subpage3, 'UKMmateriell_bootstrap' );
 	add_action( 'admin_print_styles-' . $subpage4, 'UKMmateriell_bootstrap' );
+	add_action( 'admin_print_styles-' . $subpage5, 'UKMmateriell_bootstrap' );
 
 	add_action( 'admin_print_styles-' . $subpage2, 'UKMmateriell_js_opplag' );
+	add_action( 'admin_print_styles-' . $subpage5, 'UKMmateriell_network_settings_scripts' );
+}
+
+function UKMmateriell_network_dash_messages( $MESSAGES ) {
+	require_once('network_settings_dashmessages.controller.php');
+	return $MESSAGES;
+}
+function UKMmateriell_fylke_dash_messages( $MESSAGES ) {
+	require_once('dashmessages.controller.php');
+	return $MESSAGES;
 }
 function UKMmateriell_menu() {
 	global $blog_id;
 	
 	UKM_add_menu_page('resources','Materiell', 'Materiell', 'editor', 'UKMmateriell', 'UKMmateriell', 'http://ico.ukm.no/kolli-menu.png',15);
+	UKM_add_scripts_and_styles('Materiell', 'UKMmateriell_bootstrap3');
+	
 	if(get_option('site_type') == 'fylke')
 		UKM_add_submenu_page('UKMmateriell', 'Bestill pakke', 'Bestill pakke', 'editor', 'UKMmateriellpakke', 'UKMmateriellpakke');
 }
 
-function UKMmateriell_bootstrap(){
-	wp_enqueue_script('bootstrap_js');
-	wp_enqueue_style('bootstrap_css');
-}
 
 function UKMNinstrato() {
 	require_once('dash.controller.php');
@@ -71,10 +84,32 @@ function UKMmateriell_js_opplag() {
 	wp_enqueue_script('UKMmateriell_opplag', plugin_dir_url( __FILE__ ) . 'js/opplag.materiellpakke.js');
 }
 
+function UKMmateriell_bootstrap(){
+	wp_enqueue_script('bootstrap_js');
+	wp_enqueue_style('bootstrap_css');
+}
+
+function UKMmateriell_bootstrap3(){
+	wp_enqueue_script('bootstrap3_js');
+	wp_enqueue_style('bootstrap3_css');
+}
+
+function UKMmateriell_network_settings_scripts() {
+	wp_enqueue_script( 'UKMmateriell_network_settings_script', plugin_dir_url( __FILE__ ) .'ukmmateriell.js');
+#	wp_enqueue_script('WPbootstrap3_js');
+#	wp_enqueue_style('WPbootstrap3_css');
+}
+
 
 function UKMpakkeinnhold() {
 	require_once('opplag.controller.php');
 	echo TWIG('pakkeinnhold.twig.html', $infos , dirname(__FILE__));
+}
+
+function UKMMateriellInnstillinger() {
+	$INFOS = array();
+	require_once('network_settings.controller.php');
+	echo TWIG('network_settings.twig.html', $INFOS, dirname(__FILE__));
 }
 
 
