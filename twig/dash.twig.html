@@ -1,40 +1,74 @@
-<div class="wrap">
-	<h1>UKM-materiell</h1>
-	{% if site_type == "fylke" %}
-		<h2>Bestill materiellpakke</h2>
-		<p>
-			<strong>Det er fylkeskontaktene som har ansvar for å bestille materiellpakker til alle sine lokalmønstringer.</strong>
-		</p>
-		<p>Frist for bestilling av materiellpakker i {{season}} er: {% if deadline == false %}ikke bestemt{% else %} {{deadline|dato('D d.m.Y')}} {% endif %}</p>
-		
-		{% if is_open %}
-			<p><a href="?page=UKMmateriellpakke">Gå til materiellpakke-bestilling</a></p>
-		{% elseif deadline != false %}
-			<div class="alert alert-danger">
-				<p>
-					<strong>Skjemaet er lukket</strong>
-					<br />
-					Skjemaet er åpent mellom {{ start|dato('D d.m') }} og {{ stop|dato('D d.m') }}
-				</p>
-			</div>
-		{% endif %}
-	{% endif %}
+<style>
+	.center {
+		text-align: center;
+	}
+</style>
+<div class="wrap UKMwidth">
+	<h2>UKM-materiell</h2>
 	
-	<h2>Tilpass / last ned materiell</h2>
-	<p>UKM får snart ny grafisk profil. Designgeneratoren er derfor ikke tilgjengelig, men vi lover å få den tilbake så fort som mulig!</p>
-{#	<h3>Plakater, facebook-grafikk, videoer, diplomer, program, logoer, ikoner osv</h3>
-	<p>Vi har samlet alt UKM-materiellet på ett sted!</p>
-	<p><a href="http://instrato.no/start/ukm-autologin.php?uid={{user_id}}&key={{user_key}}" target="_blank">Logg inn til instrato her</a></p>
-	{% if eksternbruker is defined %}
-	<h3>Åpen bruker</h3>
-	<p class="lead">Har du eksterne personer som trenger tilgang til instrato? La de bruke denne brukeren:</p>
-	<p>Brukernavn: {{eksternbruker.navn}}<br />Passord: {{eksternbruker.pass}}</p>
-	<p>Innlogging for eksterne brukere skjer på: <a href="http://instrato.no" target="_blank">instrato.no</a></p>
+	{% if site_type == "fylke" and deadline != false and is_open %}
+		{% include "materiellpakke_dashinfo.twig.html" %}
 	{% endif %}
-#}	
 
-	<h2>Kjøp UKM-artikler (webshop)</h2>
-	<p>OBS: Du må selv opprette en egen bruker for å fullføre bestillingen i webshop (som tidligere). 
-	Brukernavn og passord du har fått fra UKM Norge gjelder ikke i webshop.</p>
-	<p><a href="http://ukm.adprofil.no" target="_blank">Gå til webshop</a></p>
+	
+	<div class="row">
+		<div class="col-xs-12 col-md-6">
+			<div class="well">
+				<a href="http://instrato.no/start/ukm-autologin.php?uid={{user_id}}&key={{user_key}}" target="_blank">
+					<div class="center">
+						<img src="//ico.ukm.no/printer-128.png" width="100" />
+					</div>
+					<h2 class="center">Gratis materiell</h2>
+				</a>
+				<p class="lead center">I design-generatoren kan du veldig enkelt lage ditt eget UKM-materiell.</p>
+				<p>Vi har ferdige maler for ditt lokale UKM liggende klart for tilpasning og utskrift. Velg mellom program, plakater, flyers, facebook med mer.</p>
+				<p>Her finner du også logo-filer, grafiske elementer, presentasjoner og brosjyrer.</p>
+			</div>
+		</div>
+		
+		<div class="col-xs-12 col-md-6">
+			<div class="well">
+				<a href="http://ukm.adprofil.no" target="_blank">
+					<div class="center">
+						<img src="//ico.ukm.no/cart-green-128.png" width="100" />
+					</div>
+					<h2 class="center">Kjøp UKM-artikler (webshop)</h2>
+				</a>
+				<p class="lead center">Jakker, t-skjorter, armbånd, bannere, drops, popups med mer</p>
+				<p>OBS: Du må selv opprette en egen bruker for å fullføre bestillingen i webshop (som tidligere). 
+				Brukernavn og passord du har fått fra UKM Norge gjelder ikke i webshop.</p>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-xs-12">
+			{% if site_type == "fylke" and not is_open %}
+				{% include "materiellpakke_dashinfo.twig.html" %}
+			{% endif %}
+		</div>
+	</div>
+	
+	{% if eksternbruker is defined %}
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="well">
+				<div class="center">
+					<img src="//ico.ukm.no/people-256.png" width="90" />
+				</div>
+				<h2 class="center">Offentlig bruker design-generator</h2>
+				<p class="lead center">Gi eksterne ressurser tilgang til design-generatoren</p>
+
+				<p class="center">Innlogging for eksterne brukere skjer på: <a href="http://instrato.no" target="_blank">instrato.no</a></p>
+
+				<div class="col-xs-12 col-sm-6">
+					<p><b>Brukernavn:</b> {{eksternbruker.navn}}</p>
+				</div>
+				<div class="col-xs-12 col-sm-6">
+					<p><b>Passord:</b>{{eksternbruker.pass}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% endif %}
 </div>
