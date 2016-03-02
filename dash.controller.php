@@ -29,6 +29,19 @@ $infos = array('user_id' => $bruker->b_id,
 		   'stop' => $stop,
 		  );
 
+// Hvis dette er en deltakerbruker
+$qry = new SQL("SELECT `p_id`, `username`, `email`
+					FROM `ukm_wp_deltakerbrukere`
+					WHERE `wp_id` = #cuid", array('cuid' => $cuid));
+echo $qry->debug();
+$b = $qry->run('array');
+if ( $b ) {
+	$infos['user_id'] = $b['p_id'];
+	$infos['user_key'] = md5($b['p_id']. UKM_INSTRATO_PEPPER);
+	
+}
+
+
 // Dropp eksternbrukere for UKM Norge hvis lokalside
 if( get_option('site_type') == 'fylke' ) {
 	if( $cuid == 1 ) {
