@@ -57,7 +57,7 @@ function UKMmateriell_fylke_dash_messages( $MESSAGES ) {
 function UKMmateriell_menu() {
 	global $blog_id;
 	
-	UKM_add_menu_page('resources','Materiell', 'Materiell', 'editor', 'UKMmateriell', 'UKMmateriell', 'http://ico.ukm.no/kolli-menu.png',15);
+	UKM_add_menu_page('resources','Materiell', 'Materiell', 'ukm_rapporter', 'UKMmateriell', 'UKMmateriell', 'http://ico.ukm.no/kolli-menu.png',15);
 	UKM_add_scripts_and_styles('UKMmateriell', 'UKMmateriell_bootstrap3');
 	
 	if(get_option('site_type') == 'fylke')
