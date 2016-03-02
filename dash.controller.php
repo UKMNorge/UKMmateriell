@@ -37,8 +37,7 @@ echo $qry->debug();
 $b = $qry->run('array');
 if ( $b ) {
 	$infos['user_id'] = $b['p_id'];
-	$infos['user_key'] = md5($b['p_id']. UKM_INSTRATO_PEPPER);
-	
+	$infos['user_key'] = md5( $b['p_id'] . UKM_INSTRATO_PEPPER);
 }
 
 
