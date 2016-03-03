@@ -33,11 +33,12 @@ $infos = array('user_id' => $bruker->b_id,
 $qry = new SQL("SELECT `p_id`, `username`, `email`
 					FROM `ukm_wp_deltakerbrukere`
 					WHERE `wp_id` = #cuid", array('cuid' => $cuid));
-echo $qry->debug();
+#echo $qry->debug();
 $b = $qry->run('array');
 if ( $b ) {
-	$infos['user_id'] = $b['p_id'];
-	$infos['user_key'] = md5( $b['p_id'] . UKM_INSTRATO_PEPPER);
+	$bruker_id = str_pad($b['p_id'], 8, "1000000000", STR_PAD_LEFT);
+	$infos['user_id'] = $bruker_id;
+	$infos['user_key'] = md5($bruker_id.UKM_INSTRATO_PEPPER);
 }
 
 
