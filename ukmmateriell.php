@@ -19,7 +19,7 @@ if(is_admin()) {
 	add_action('UKM_admin_menu', 'UKMmateriell_menu',100);
 }
 add_action('network_admin_menu', 'UKMmateriell_network_menu');
-add_filter('UKMWPNETWDASH_messages', 'UKMmateriell_network_dash_messages',3);
+#add_filter('UKMWPNETWDASH_messages', 'UKMmateriell_network_dash_messages',3);
 
 if( get_option('site_type') == 'fylke' ) {
 	add_filter('UKMWPDASH_messages', 'UKMmateriell_fylke_dash_messages');
@@ -27,8 +27,10 @@ if( get_option('site_type') == 'fylke' ) {
 
 
 function UKMmateriell_network_menu() {
-	$page = add_menu_page('Materiell', 'Materiell', 'superadmin', 'UKMmateriell','UKMmateriell', 'http://ico.ukm.no/kolli-menu.png',2100);
-
+#	$page = add_menu_page('Materiell', 'Materiell', 'superadmin', 'UKMmateriell','UKMmateriell', 'http://ico.ukm.no/kolli-menu.png',2100);
+	$page = add_menu_page('Materiell', 'Materiell', 'superadmin', 'UKMNinstrato','UKMNinstrato', 'http://ico.ukm.no/kolli-menu.png',2100);
+	add_action( 'admin_print_styles-' . $page, 'UKMmateriell_bootstrap' );
+/*
 	$subpage1 = add_submenu_page( 'UKMmateriell', 'Pakkeinnhold', 'Pakkeinnhold', 'superadministrator', 'UKMpakkeinnhold', 'UKMpakkeinnhold' );
 	$subpage2 = add_submenu_page( 'UKMmateriell', 'Opplag', 'Opplag', 'superadministrator', 'UKMopplag', 'UKMopplag' );
 	$subpage3 = add_submenu_page( 'UKMmateriell', 'Fordeling', 'Fordeling', 'superadministrator', 'UKMfordeling', 'UKMfordeling' );
@@ -44,6 +46,7 @@ function UKMmateriell_network_menu() {
 
 	add_action( 'admin_print_styles-' . $subpage2, 'UKMmateriell_js_opplag' );
 	add_action( 'admin_print_styles-' . $subpage5, 'UKMmateriell_network_settings_scripts' );
+*/
 }
 
 function UKMmateriell_network_dash_messages( $MESSAGES ) {
@@ -60,10 +63,11 @@ function UKMmateriell_menu() {
 	UKM_add_menu_page('resources','Materiell', 'Materiell', 'ukm_materiell', 'UKMmateriell', 'UKMmateriell', 'http://ico.ukm.no/kolli-menu.png',15);
 	UKM_add_scripts_and_styles('UKMmateriell', 'UKMmateriell_bootstrap3');
 	
+/*
 	if(get_option('site_type') == 'fylke')
 		UKM_add_submenu_page('UKMmateriell', 'Bestill pakke', 'Bestill pakke', 'editor', 'UKMmateriellpakke', 'UKMmateriellpakke');
+*/
 }
-
 
 function UKMNinstrato() {
 	require_once('dash.controller.php');
