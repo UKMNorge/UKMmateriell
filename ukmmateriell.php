@@ -60,13 +60,13 @@ function UKMmateriell_fylke_dash_messages( $MESSAGES ) {
 function UKMmateriell_menu() {
 	global $blog_id;
 	
-	UKM_add_menu_page('resources','Materiell', 'Materiell', 'ukm_materiell', 'UKMmateriell', 'UKMmateriell', 'http://ico.ukm.no/kolli-menu.png',15);
+	UKM_add_menu_page('resources','Materiell', 'Materiell', 'superadmin', 'UKMmateriell', 'UKMmateriell', 'http://ico.ukm.no/kolli-menu.png',15);
 	UKM_add_scripts_and_styles('UKMmateriell', 'UKMmateriell_bootstrap3');
 	
-/*
+
 	if(get_option('site_type') == 'fylke')
-		UKM_add_submenu_page('UKMmateriell', 'Bestill pakke', 'Bestill pakke', 'editor', 'UKMmateriellpakke', 'UKMmateriellpakke');
-*/
+		UKM_add_submenu_page('UKMmateriell', 'Bestill pakke', 'Bestill pakke', 'superadmin', 'UKMmateriellpakke', 'UKMmateriellpakke');
+
 }
 
 function UKMNinstrato() {
