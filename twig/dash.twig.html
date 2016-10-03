@@ -65,11 +65,11 @@
 	</div>
 	{% endif %}
 	
-	{% if site_type == "fylke" and not is_open %}
+	{# if site_type == "fylke" and not is_open %}
 		<div class="row">
 			<div class="col-xs-12">
 				{% include "materiellpakke_dashinfo.twig.html" %}
 			</div>
 		</div>
-	{% endif %}
+	{% endif #}
 </div>
