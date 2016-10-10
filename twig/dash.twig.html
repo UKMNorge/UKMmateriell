@@ -3,53 +3,78 @@
 		text-align: center;
 	}
 </style>
-<div class="wrap UKMwidth">
+<div class="wrap">
 	<h2>UKM-materiell</h2>
-	
-	{% if site_type == "fylke" and deadline != false and is_open %}
-		{% include "materiellpakke_dashinfo.twig.html" %}
-	{% endif %}
-
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="alert alert-info">
+				<h3><span class="label label-danger">Nyhet!</span> Bestill din materiellpakke </h3>
+				<p class="lead">Nå velger du selv hva du vil ha tilsendt i materiell-pakken. Trykk "UKM-materiell" nedenfor for å starte din bestilling</p>
+				<p>
+					Fra og med 2017-sesongen er prisen den samme uansett hvor materiell du ønsker tilsendt. OBS: dette gjelder kun produktene som tidligere har vært i materiell-pakken, ikke de andre artiklene. Dette kommer tydelig frem når du bestiller materiellet, og prisen som er oppgitt er gjeldende. For materiellet betaler du kun ekspedisjonsgebyr (kr. 95,-) pluss porto, og dette pakkes sammen med alt på din ordre.
+			</div>
+		</div>
+	</div>
 	
 	<div class="row">
-		<div class="col-xs-12 col-md-6">
+
+		<div class="col-xs-12 col-sm-6 col-md-4">
+			<div class="well">
+				<a href="http://ukm.adprofil.no" target="_blank">
+					<div class="center">
+						<img src="//ico.ukm.no/kolli-128.png" width="100" />
+					</div>
+					<h2 class="center">UKM-materiell</h2>
+				</a>
+				<p class="lead center">
+					Plakater, ID-kort, jakker, t-skjorter, armbånd, bannere med mer
+				</p>
+				<p>
+					<b>Materiell-pakken:</b> 
+					Alle de gratis materiell-produktene finner du under menyvalget 
+					"<a href="http://ukm.adprofil.no/default.aspx?gid=1138" target="_blank">Materialpakke</a>".
+					Her bygger du din egen materiellpakke
+				</p>
+				<p>
+					<b>OBS:</b>
+					Du vil få spørsmål om brukernavn og passord. Dette oppretter du selv når du fullfører din bestilling. 
+					Brukernavn og passord du har fått fra UKM Norge gjelder ikke i materiell-bestillingen.
+				</p>
+			</div>
+		</div>
+
+
+		<div class="col-xs-12 col-sm-6 col-md-4">
 			<div class="well">
 				<a href="http://instrato.no/start/ukm-autologin.php?uid={{user_id}}&key={{user_key}}" target="_blank">
 					<div class="center">
 						<img src="//ico.ukm.no/printer-128.png" width="100" />
 					</div>
-					<h2 class="center">Gratis materiell</h2>
+					<h2 class="center">Tilpasset materiell</h2>
 				</a>
-				<p class="lead center">I design-generatoren kan du veldig enkelt lage ditt eget UKM-materiell.</p>
-				<p>Vi har ferdige maler for ditt lokale UKM liggende klart for tilpasning og utskrift. Velg mellom program, plakater, flyers, facebook med mer.</p>
-				<p>Her finner du også logo-filer, grafiske elementer, presentasjoner og brosjyrer.</p>
+				<p class="lead center">
+					Ferdigmalene gjør det raskt og enkelt å lage egne plakater og andre produkter til din markedsføring.
+				</p>
+				<p>
+					<b>Her kan du også lage plakater for helårige UKM-arrangementer</b>
+				</p>
+				<p>
+					Velg mellom program, plakater, flyers, facebook med mer, tilpass de til ditt arrangement, og skriv ut.
+				</p>
+				<p>
+					Hvis du trenger det finner du også logo-filer, grafiske elementer, presentasjoner og brosjyrer.
+				</p>
 			</div>
 		</div>
-		
-		<div class="col-xs-12 col-md-6">
-			<div class="well">
-				<a href="http://ukm.adprofil.no" target="_blank">
-					<div class="center">
-						<img src="//ico.ukm.no/cart-green-128.png" width="100" />
-					</div>
-					<h2 class="center">Kjøp UKM-artikler (webshop)</h2>
-				</a>
-				<p class="lead center">Jakker, t-skjorter, armbånd, bannere, drops, popups med mer</p>
-				<p>OBS: Du må selv opprette en egen bruker for å fullføre bestillingen i webshop (som tidligere). 
-				Brukernavn og passord du har fått fra UKM Norge gjelder ikke i webshop.</p>
-			</div>
-		</div>
-	</div>
 	
 	{% if eksternbruker is defined %}
-	<div class="row">
-		<div class="col-xs-12">
+		<div class="col-xs-12 col-sm-6 col-md-4">
 			<div class="well">
 				<div class="center">
 					<img src="//ico.ukm.no/people-256.png" width="90" />
 				</div>
 				<h2 class="center">Offentlig bruker design-generator</h2>
-				<p class="lead center">Gi eksterne ressurser tilgang til design-generatoren</p>
+				<p class="lead center">Gi eksterne ressurser tilgang til det tilpassede materiellet</p>
 
 				<p class="center">Innlogging for eksterne brukere skjer på: <a href="http://instrato.no" target="_blank">instrato.no</a></p>
 
