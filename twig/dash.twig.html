@@ -8,30 +8,32 @@
 	<div class="row">
 		<div class="col-xs-12">
 			<div class="alert alert-info">
-				<h3><span class="label label-danger">Nyhet!</span> Bestill din materiellpakke </h3>
+				<h3><span class="label label-danger">Nyhet!</span> Skreddersy din materiellpakke</h3>
 				<p class="lead">
 					Nå velger du selv hva du vil ha tilsendt i materiell-pakken. 
-					Trykk "UKM-materiell" nedenfor for å starte din bestilling
+					Trykk "Nettbutikk" nedenfor for å starte din bestilling
 				</p>
 				<p>
-					Fra og med 2017-sesongen er prisen den samme uansett hvor mye materiell du ønsker tilsendt. 
-					OBS: Dette gjelder kun produktene som tidligere har vært i materiell-pakken, ikke de andre artiklene. 
-					Dette kommer tydelig frem når du bestiller materiellet, og prisen som er oppgitt er gjeldende. 
-					For materiellet betaler du kun ekspedisjonsgebyr (kr. 95,-) pluss porto, 
-					og dette pakkes sammen med alt på din ordre.
+					Prisen den samme uansett hvor mye du ønsker tilsendt av trykksakene. 
+					OBS: Dette gjelder kun trykksakene som tidligere har vært i materiell-pakken, 
+					ikke de andre artiklene (t-skjorter, jakker osv). 
+				</p>
+				<p>
+					Du kan plukke enkeltelementer for å få akkurat de trykksakene du trenger, 
+					eller velge en av de ferdig-sammensatte pakkene som før (mini, medium eller stor).
+				</p>
 			</div>
 		</div>
 	</div>
-	
-	<div class="row">
 
+	<div class="row">
 		<div class="col-xs-12 col-sm-6 col-md-4">
 			<div class="well">
 				<a href="http://ukm.adprofil.no" target="_blank">
 					<div class="center">
 						<img src="//ico.ukm.no/kolli-128.png" width="100" />
 					</div>
-					<h2 class="center">UKM-materiell</h2>
+					<h2 class="center">Nettbutikk</h2>
 				</a>
 				<p class="lead center">
 					Plakater, ID-kort, jakker, t-skjorter, armbånd, bannere med mer
@@ -94,14 +96,12 @@
 				<div class="clearfix"></div>
 			</div>
 		</div>
-	</div>
 	{% endif %}
 	
 	{# if site_type == "fylke" and not is_open %}
-		<div class="row">
-			<div class="col-xs-12">
-				{% include "materiellpakke_dashinfo.twig.html" %}
-			</div>
+		<div class="col-xs-12">
+			{% include "materiellpakke_dashinfo.twig.html" %}
 		</div>
 	{% endif #}
+	</div>
 </div>
