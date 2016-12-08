@@ -21,9 +21,9 @@ if(is_admin()) {
 add_action('network_admin_menu', 'UKMmateriell_network_menu');
 #add_filter('UKMWPNETWDASH_messages', 'UKMmateriell_network_dash_messages',3);
 
-if( get_option('site_type') == 'fylke' ) {
-	add_filter('UKMWPDASH_messages', 'UKMmateriell_fylke_dash_messages');
-}
+#if( get_option('site_type') == 'fylke' ) {
+#	add_filter('UKMWPDASH_messages', 'UKMmateriell_fylke_dash_messages');
+#}
 
 
 function UKMmateriell_network_menu() {
@@ -64,8 +64,8 @@ function UKMmateriell_menu() {
 	UKM_add_scripts_and_styles('UKMmateriell', 'UKMmateriell_bootstrap3');
 	
 
-	if(get_option('site_type') == 'fylke')
-		UKM_add_submenu_page('UKMmateriell', 'Bestill pakke', 'Bestill pakke', 'superadmin', 'UKMmateriellpakke', 'UKMmateriellpakke');
+#	if(get_option('site_type') == 'fylke')
+#		UKM_add_submenu_page('UKMmateriell', 'Bestill pakke', 'Bestill pakke', 'superadmin', 'UKMmateriellpakke', 'UKMmateriellpakke');
 
 }
 
