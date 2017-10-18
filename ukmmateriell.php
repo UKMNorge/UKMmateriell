@@ -27,8 +27,8 @@ add_action('network_admin_menu', 'UKMmateriell_network_menu');
 
 
 function UKMmateriell_network_menu() {
-#	$page = add_menu_page('Materiell', 'Materiell', 'superadmin', 'UKMmateriell','UKMmateriell', 'http://ico.ukm.no/kolli-menu.png',2100);
-	$page = add_menu_page('Materiell', 'Materiell', 'superadmin', 'UKMNinstrato','UKMNinstrato', 'http://ico.ukm.no/kolli-menu.png',2100);
+#	$page = add_menu_page('Materiell', 'Materiell', 'superadmin', 'UKMmateriell','UKMmateriell', '//ico.ukm.no/kolli-menu.png',2100);
+	$page = add_menu_page('Materiell', 'Materiell', 'superadmin', 'UKMNinstrato','UKMNinstrato', '//ico.ukm.no/kolli-menu.png',2100);
 	add_action( 'admin_print_styles-' . $page, 'UKMmateriell_bootstrap' );
 /*
 	$subpage1 = add_submenu_page( 'UKMmateriell', 'Pakkeinnhold', 'Pakkeinnhold', 'superadministrator', 'UKMpakkeinnhold', 'UKMpakkeinnhold' );
@@ -60,7 +60,7 @@ function UKMmateriell_fylke_dash_messages( $MESSAGES ) {
 function UKMmateriell_menu() {
 	global $blog_id;
 	
-	UKM_add_menu_page('resources','Materiell', 'Materiell', 'ukm_materiell', 'UKMmateriell', 'UKMmateriell', 'http://ico.ukm.no/kolli-menu.png',15);
+	UKM_add_menu_page('resources','Materiell', 'Materiell', 'ukm_materiell', 'UKMmateriell', 'UKMmateriell', '//ico.ukm.no/kolli-menu.png',15);
 	UKM_add_scripts_and_styles('UKMmateriell', 'UKMmateriell_bootstrap3');
 	
 
