@@ -34,7 +34,7 @@ if($_SERVER['REQUEST_METHOD']==='POST') {
 							 array('kommuneid' => $kommune));
 			$test = $test->run();
 			
-			if(mysql_num_rows($test)==0)
+			if(SQL::fetch($test)==0)
 				$sql = new SQLins('wp_materiell');
 			else
 				$sql = new SQLins('wp_materiell', array('kommune_id'=>$_POST['kommune_id'][$i])); 
