@@ -7,7 +7,7 @@ $fylker = new SQL("SELECT `id` FROM `smartukm_fylke`
 $fylker = $fylker->run();
 $mangler = 0;
 
-while( $r = mysql_fetch_assoc( $fylker ) ) {
+while( $r = SQL::fetch( $fylker ) ) {
 	$fylke = new materiell( $r['id'] );
 	
 	if(!$fylke->oppdatert)

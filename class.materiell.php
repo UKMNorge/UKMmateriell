@@ -133,7 +133,7 @@ class materiell {
 						array('fylke_id' => $this->id));
 		$res = $qry->run();
 		
-		while($r = mysql_fetch_assoc( $res ) ) {
+		while($r = SQL::fetch( $res ) ) {
 			$kommune = array();
 			foreach($r as $key => $val) {
 				$newkey = str_replace('kommune_','', $key);

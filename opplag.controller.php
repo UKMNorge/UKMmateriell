@@ -65,7 +65,7 @@ $res = $sql->run();
 
 $produkter = array();
 
-while( $r = mysql_fetch_assoc( $res ) ) {
+while( $r = SQL::fetch( $res ) ) {
 	$produkt = new produkt( $r['produkt_id'] );
 	$produkt->behov($pakke_mini, $pakke_medium, $pakke_stor, $pakke_fylke);
 	

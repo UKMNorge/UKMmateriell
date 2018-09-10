@@ -13,7 +13,7 @@ $total['pakker']['medium'] = 0;
 $total['pakker']['stor'] = 0;
 $total['pakker']['total'] = 0;
 
-while( $r = mysql_fetch_assoc( $fylker ) ) {
+while( $r = SQL::fetch( $fylker ) ) {
 	$fylke = new materiell( $r['id'] );
 	
 	$fylkedata = array();

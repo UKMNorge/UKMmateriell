@@ -78,7 +78,7 @@ if($_SERVER['REQUEST_METHOD']==='POST') {
 					WHERE `kommune`.`idfylke` = '".get_option('fylke')."'
 					ORDER BY `kommune`.`name` ASC");
 	$res = $sql->run();
-	while ($row = mysql_fetch_assoc($res)) {
+	while ($row = SQL::fetch($res)) {
 		foreach($row as $key => $val) {
 			$row[$key] = utf8_encode($val);
 		}
