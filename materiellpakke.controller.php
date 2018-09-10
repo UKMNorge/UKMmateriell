@@ -66,7 +66,7 @@ if($_SERVER['REQUEST_METHOD']==='POST') {
 	$fylkeinfos = $sql->run('array');
 	foreach($fylkeinfos as $key => $val) {
 		$newkey = str_replace('fylke_','', $key);
-		$fylkedata[$newkey] = utf8_encode($val);
+		$fylkedata[$newkey] = $val;
 	}
 	// KOMMUNE-SKJEMA (STEG 2)
 	$kommuner = array();
@@ -79,9 +79,6 @@ if($_SERVER['REQUEST_METHOD']==='POST') {
 					ORDER BY `kommune`.`name` ASC");
 	$res = $sql->run();
 	while ($row = SQL::fetch($res)) {
-		foreach($row as $key => $val) {
-			$row[$key] = utf8_encode($val);
-		}
 		// Deaktiverer deaktiverte (doh)
 		if($row['aktiv']=='Nei')
 			$row['skalha'] = 'arrikke';

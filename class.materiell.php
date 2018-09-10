@@ -10,10 +10,7 @@ class produkt {
 		
 		foreach($res as $key => $val) {
 			$newkey = str_replace('produkt_', '', $key);
-			if(is_string($val))
-				$this->$newkey = utf8_encode($val);
-			else
-				$this->$newkey = $val;
+			$this->$newkey = $val;
 		}
 	}
 	
@@ -95,10 +92,7 @@ class materiell {
 		$res = $qry->run('array');
 		foreach($res as $key => $val) {
 			$newkey = str_replace('fylke_','', $key);
-			if(is_string($val))
-				$this->$newkey = utf8_encode($val);
-			else
-				$this->$newkey = $val;
+			$this->$newkey = $val;
 		}
 		
 		// Oppdatert means ready (doh?)
@@ -137,10 +131,7 @@ class materiell {
 			$kommune = array();
 			foreach($r as $key => $val) {
 				$newkey = str_replace('kommune_','', $key);
-				if(is_string($val))
-					$kommune[$newkey] = utf8_encode($val);
-				else
-					$kommune[$newkey] = $val;
+				$kommune[$newkey] = $val;
 			}
 			
 			$kommune = (object) $kommune;
