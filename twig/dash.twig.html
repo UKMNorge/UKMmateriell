@@ -1,92 +1,77 @@
-<style>
-	.center {
-		text-align: center;
-	}
-</style>
-<div class="wrap">
-	<h2>Skreddersy din materiellpakke</h2>
-	<p>
-		Nå velger du selv hva du vil ha tilsendt i materiell-pakken. 
-		Prisen er den samme uansett hvor mange trykksaker du ønsker. 
-		Du bestiller alt i  
-		<a href="http://ukm.adprofil.no" target="_blank">nettbutikken</a>.
-	</p>
+<h2 style="margin-top: .8em;">Materiell</h2>
+<ol class="list-group" style="width: 95%;">
+	<li class="list-group-item">
+		<img src="//ico.ukm.no/kolli-128.png" width="100" class="pull-right float-right" />
+		<h3>
+			<a href="http://ukm.adprofil.no" target="_blank">Bestill ferdig materiell</a>
+		</h3>
+		<p>
+			Her kan du bestille gratis trykksaker, eller kjøpe andre UKM-produkter som t-skjorter, drops, bannere osv.
+		</p>
+		<p class="small">
+			<b>OBS:</b>
+			Du vil få spørsmål om brukernavn og passord. Dette oppretter du selv når du fullfører din bestilling. 
+			Brukernavn og passord du har fått fra UKM Norge gjelder ikke i nettbutikken.
+		</p>
 
-	<div class="row">
-		<div class="col-xs-12 col-sm-6 col-md-4">
-			<div class="well">
-				<a href="http://ukm.adprofil.no" target="_blank">
-					<div class="center">
-						<img src="//ico.ukm.no/kolli-128.png" width="100" />
-					</div>
-					<h2 class="center">Nettbutikk</h2>
-				</a>
-				<p class="lead center">
-					Plakater, ID-kort, jakker, t-skjorter, armbånd, bannere med mer
-				</p>
-				<p>
-					<b>Materiell-pakken:</b> 
-					Alle de gratis trykksakene finner du under menyvalget 
-					"<a href="http://ukm.adprofil.no/category/ukm/ukm-trykksaker-1131" target="_blank">Trykksaker</a>" i nettbutikken.
-				</p>
-				<p>
-					<b>OBS:</b>
-					Du vil få spørsmål om brukernavn og passord. Dette oppretter du selv når du fullfører din bestilling. 
-					Brukernavn og passord du har fått fra UKM Norge gjelder ikke i nettbutikken.
-				</p>
-			</div>
-		</div>
+		<div class="clearfix"></div>
+	</li>
+	
+	
+	<li class="list-group-item">
+		<img src="//ico.ukm.no/printer-128.png" width="100" class="pull-right float-right" />
+		<h3>
+			<a href="http://instrato.no/start/ukm-autologin.php?uid={{user_id}}&key={{user_key}}" target="_blank">Tilpass og skriv ut materiell</a>
+		</h3>
+		<p>
+			Ferdigmalene gjør at du raskt og enkelt kan lage dine egne plakater, program, facebook-bannere og lignende.
+		</p>
+		<p class="small">
+			&nbsp;
+		</p>
 
+		<div class="clearfix"></div>
+	</li>
 
-		<div class="col-xs-12 col-sm-6 col-md-4">
-			<div class="well">
-				<a href="http://instrato.no/start/ukm-autologin.php?uid={{user_id}}&key={{user_key}}" target="_blank">
-					<div class="center">
-						<img src="//ico.ukm.no/printer-128.png" width="100" />
-					</div>
-					<h2 class="center">Tilpasset materiell</h2>
-				</a>
-				<p class="lead center">
-					Ferdigmalene gjør det raskt og enkelt å lage egne plakater og andre produkter til din markedsføring.
-				</p>
-				<p>
-					<b>Her kan du også lage plakater for helårige UKM-arrangementer</b>
-				</p>
-				<p>
-					Velg mellom program, plakater, flyers, facebook med mer, tilpass de til ditt arrangement, og skriv ut.
-				</p>
-				<p>
-					Hvis du trenger det, finner du også logo-filer, grafiske elementer, presentasjoner og brosjyrer.
-				</p>
-			</div>
-		</div>
+	<li class="list-group-item">
+		<img src="//ico.ukm.no/palette-128.png" width="100" class="pull-right float-right" />
+		<h3>
+			<a href="https://org.ukm.no/grafisk-profil/" target="_blank">Grafiske elementer og logoer</a>
+		</h3>
+		<p>
+			Ønsker du å designe ting helt selv, eller trenger en UKM-logo finner du de i 
+			<a href="https://org.ukm.no/grafisk-profil/" target="_blank">vår grafiske profil på organisasjonssiden</a>.
+		</p>
+		<p class="small">
+			<b>TIPS:</b>
+			Sjekk ut 
+			<a href="http://instrato.no/start/ukm-autologin.php?uid={{user_id}}&key={{user_key}}" target="_blank">design-generatoren</a>
+			før du lager egne ting.
+		</p>
+
+		<div class="clearfix"></div>
+	</li>
 	
 	{% if eksternbruker is defined %}
-		<div class="col-xs-12 col-sm-6 col-md-4">
-			<div class="well">
-				<div class="center">
-					<img src="//ico.ukm.no/people-256.png" width="90" />
-				</div>
-				<h2 class="center">Offentlig bruker design-generator</h2>
-				<p class="lead center">Gi eksterne ressurser tilgang til det tilpassede materiellet</p>
+		<li class="list-group-item">
+			<img src="//ico.ukm.no/lock-128.png" width="100" class="pull-right float-right" />
+			<h3>
+				Gi andre tilgang til design-generatoren
+			</h3>
+			<p>
+				Hvis andre skal lage tilpasset materiell for deg, kan du la de få dette brukernavnet og passordet.
+			</p>
 
-				<p class="center">Innlogging for eksterne brukere skjer på: <a href="http://instrato.no" target="_blank">instrato.no</a></p>
-
-				<div class="col-xs-12 col-sm-6">
-					<p><b>Brukernavn:</b> {{eksternbruker.navn}}</p>
-				</div>
-				<div class="col-xs-12 col-sm-6">
-					<p><b>Passord:</b>{{eksternbruker.pass}}</p>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-		</div>
+			<p>
+				<b>Innlogging:</b> <a href="http://instrato.no" target="_blank">instrato.no</a>
+				<br />
+				<b>Brukernavn:</b> {{eksternbruker.navn}}
+				<br />
+				<b>Passord:</b>{{eksternbruker.pass}}
+			</p>
+	
+			<div class="clearfix"></div>
+		</li>
 	{% endif %}
 	
-	{# if site_type == "fylke" and not is_open %}
-		<div class="col-xs-12">
-			{% include "materiellpakke_dashinfo.twig.html" %}
-		</div>
-	{% endif #}
-	</div>
-</div>
+</ol>
